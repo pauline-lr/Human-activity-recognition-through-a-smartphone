@@ -5,7 +5,7 @@
 - Pauline Loréa
 
 ## Résumé
-✓ DA phase 1 validé lors de la session de juin
+✓ DA phase 1 validé lors de la session de juin</br>
 Ce repository contient donc : 
 <ul>
 <li>Code de la phase 1</li>
