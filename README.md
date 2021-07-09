@@ -1,8 +1,8 @@
 # PNDI Seconde Session
 
 ## Membres du groupe 
-- Jonathan Smith 
-- Pauline Loréa
+* Jonathan Smith 
+* Pauline Loréa
 
 ## Résumé
 ✓ DA phase 1 validé lors de la session de juin</br>
@@ -16,5 +16,9 @@ Ce repository contient :
 
 ## Stades d'avancement 
 ### 09-07
+Réalisation du DA de la phase 2 
+
+### 05-07
+Relecture du cours et des énoncés du projet 
 Objectif : coder la phase 1 et 2. Réaliser le DA de la phase 2 et 3.</br>
 ✓ DA phase 1 ok 
