@@ -8,10 +8,10 @@
 ✓ DA phase 1 validé lors de la session de juin</br>
 </br>
 Ce repository contient : 
-*Code de la phase 1
-*DA de la phase 2
-*Code la phase 2
-*DA de la phase 3
+* Code de la phase 1
+* DA de la phase 2
+* Code la phase 2
+* DA de la phase 3
 
 
 ## Stades d'avancement 
