@@ -18,3 +18,6 @@ Ce repository contient :
 ### 09-07
 Objectif : coder la phase 1 et 2. Réaliser le DA de la phase 2 et 3.</br>
 ✓ DA phase 1 ok 
+
+### 05-07
+Relecture du cours et des énoncés du projet 
