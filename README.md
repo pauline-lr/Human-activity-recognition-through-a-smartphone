@@ -16,7 +16,7 @@ Ce repository contient :
 
 ## Stades d'avancement 
 ### 09-07
-Réalisation du DA de la phase 2 
+Réalisation du DA de la phase 2 (non terminé)
 
 ### 05-07
 Relecture du cours et des énoncés du projet 
