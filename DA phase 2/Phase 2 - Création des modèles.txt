@@ -4,6 +4,7 @@ trainSet.csv
 Il faut : 
 - calculer les moyennes des varrAcc des 6 mouvements => trainSet.csv
 - calculer les moyennes des varrAcc par genre (6 modèles par genre) => fiModelMen.csv + fiModelWomen.csv
+
 Constantes : 
 TRAIN_SET = "trainSet.csv"
 FI_MODEL = "fiModel.csv"
@@ -15,11 +16,10 @@ LG_PATH = 10
 NB_FILES = 360
 NB_DATA = 600
 
-
 structures : 
 paths[NBPATH][LGPATH] = {/*libellés des colonnes*/}
-sumAverageMen[NB_DATA] 
-sumAverageWomen[NB_DATA] 
+sumAveragesMen[NB_DATA] 
+sumAveragesWomen[NB_DATA] 
 nbValuesMen[NB_DATA] 
 nbValuesWomen[NB_DATA] 
 
@@ -33,12 +33,12 @@ fopen_s(&pFiWomen, FI_MODEL_WOMEN , "w")
 if (pFiTrainSet && pFiModel && pFiMen && pFiWomen)
 iLine = 1
 pFiTrainSet  = se positionner sur la Line n° 1 de "trainSet.csv"
-title = Line n° iLine pFiTrainSet 
+title = Ligne n° iLine pFiTrainSet 
 error = fgets(title,LENGTH_TITLE, pFiTrainSet)
 sortir title
 error = fscanf_s(pFiTrainSet, "%d", &mov.move)
 
-module(posLineTrainSet;pFitrainSet, iLine,;iLine, pFitrainSet)
+module(posLineTrainSet;pFitrainSet, iLine;iLine, pFitrainSet)
 
 do while (!eof(pFiTrainSet))
 movement = fscanf_s(pFiTrainSet, "%d", &mov.move)
@@ -51,13 +51,14 @@ nbValuesWomen[NB_DATA] = 0
 
 do while (!eof(pFiTrainSet) && currentMovement == mov)
 genderNum = Ligne n° iLine, colonne n°2 dans "trainSet.csv"
-module(posLineTrainSet;pFitrainSet, iLine,;iLine, pFitrainSet)
+module(posLineTrainSet;pFitrainSet, iLine;iLine, pFitrainSet)
 
 mov = fscanf_s(pFiTrainSet, "%d", &mov.move)
+
 if(genderNum == 0)
-module(lineProcessing;"women", iLine, sumAveragesWomen, nbValuesWomen; sumAveragesWomen, nbValuesWomen)
+module(lineProcessing;iLine, sumAveragesWomen, nbValuesWomen; sumAveragesWomen, nbValuesWomen)
 else
-module(lineProcessing;"men", iLine, sumAveragesMen, nbValuesMen; sumAveragesMen, nbValuesMen)
+module(lineProcessing; iLine, sumAveragesMen, nbValuesMen; sumAveragesMen, nbValuesMen)
 endif
 
 module(posLineTrainSet;pFitrainSet, iLine;iLine, pFitrainSet)
@@ -65,7 +66,8 @@ module(posLineTrainSet;pFitrainSet, iLine;iLine, pFitrainSet)
 movement = fscanf_s(pFiTrainSet, "%d", &mov.move)
 currentMovement = movement
 enddo
-// écrire les infos 
+
+module(writeData;pFiWomen, sumAveragesWomen,nbValuesWomen,movement, pFiMen, sumAveragesMen,nbValuesMen;error)
 
 enddo
 
@@ -79,7 +81,7 @@ fclose(pFiMen)
 fclose(pFiWomen)
 ------
 
-module(lineProcessing;gender, iLine, sumAverages, nbValues; sumAverages, nbValues)
+module(lineProcessing; iLine, sumAverages, nbValues; sumAverages, nbValues)
 ---* lineProcessing
 iValue = 3
 
@@ -95,4 +97,35 @@ module(posLineTrainSet;pFitrainSet, iLine,;iLine, pFitrainSet)
 ---* posLineTrainSet
 iLine++
 pFiTrainSet = Ligne n° iLine dans "trainSet.csv"
+------
+
+module(writeData;pFiModel, pFiWomen, sumAveragesWomen,nbValuesWomen,movement, pFiMen, sumAveragesMen,nbValuesMen;error)
+---* writeData
+fprintf(pFiModel)
+érire le mouvement dans pFiModel
+
+module(writeGenderData;pFiWomen, movement;)
+
+module(writeGenderData;pFiMen, movement;)
+
+iVarAcc = 0
+do while (iVarAcc < NB_DATA)
+
+finalAverageWomen =  sumAveragesWomen[iVarAcc]/nbValuesWomen[iVarAcc]
+écrire finalAverageWomen dans pFiWomen
+
+finalAverageMen = sumAveragesMen[iVarAcc]/nbValuesMen[iVarAcc]
+écrire finalAverageMen dans pFiMen
+
+totalAverage = (finalAverageWomen  + finalAverageMen) / 2 
+écrire totalAverage  dans pFiModel 
+
+iVarAcc++
+enddo
+------
+
+module(writeGenderData;pFiGender, movement;)
+---* writeGenderData
+fprintf(pFiGender)
+écrire le movement dans pFiGender
 ------
