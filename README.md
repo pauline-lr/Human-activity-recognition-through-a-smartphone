@@ -15,6 +15,10 @@ Ce repository contient :
 
 
 ## Stades d'avancement 
+### 12-07
+Fin DA phase 2 
+en cours : codage phase 1
+
 ### 09-07
 Réalisation du DA de la phase 2 (non terminé)
 
