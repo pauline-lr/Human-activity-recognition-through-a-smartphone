@@ -27,6 +27,7 @@ Relecture du cours et des énoncés du projet
 Objectif : coder la phase 1 et 2. Réaliser le DA de la phase 2 et 3.</br>
 ✓ DA phase 1 ok 
 
-</hr>
-### sources 
+---
+
+### Sources 
 Data : https://www.kaggle.com/malekzadeh/motionsense-dataset 
