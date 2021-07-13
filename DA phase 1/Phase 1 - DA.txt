@@ -1,0 +1,54 @@
+---* Datasets
+paragraphe(ouvrir le fichier "trainSet.csv")
+paragraphe(ouvrir le fichier "testSet.csv")
+
+iPath = 0
+do while (iPath <NB_PATH)
+paragraphe(movement = abréviation des 3 premiers caractères du répertoire)
+
+iFile = 0
+do while (iFile < NB_FILES)
+paragraphe(récupérer le nom du fichier dans le tableau paths)
+paragraphe(ouvrir le fichier avec son nom)
+
+if(/*le fichier s'est ouvert*/)
+paragraphe(écrire movement et gender dans "trainSet.csv")
+paragraphe(ident = numéro du movement (1 à 360))
+paragraphe(ouvrir le fichier "data_subjetcs_info.csv")
+paragraphe(récupérer le code de la personne avec le nom de chaque fichier)
+paragraphe(genderCode= rechercher la ligne associée au code personne et extraire le numéro de son genre)
+
+if (genderCode == 0)
+gender = "Femme"
+else if (genderCode == 1)
+gender = "Homme"
+endif
+
+paragraphe(fermer le fichier "data_subjetcs_info.csv")
+
+iData  = 0
+do while (iData < NB_DATA)
+paragraphe(récupérérer acceleration.x)
+x = acceleration.x
+paragraphe(récupérérer acceleration.y)
+y = acceleration.y
+paragraphe(récupérérer acceleration.z)
+z = acceleration.z
+varAcceleration = racine(x²+y²+z²) 
+paragraphe(éventuellement écrire cet enregistrement dans "testSet.csv" (aléatoire))
+iData++
+enddo
+
+paragraphe(écrire varAcceleration dans "trainSet.csv")
+endif
+
+paragraphe(fermer le fichier avec son nom)
+iFile++
+enddo
+
+iPath++
+enddo
+
+paragraphe(fermer le fichier "trainSet.csv")
+paragraphe(fermer le fichier "testSet.csv")
+------
