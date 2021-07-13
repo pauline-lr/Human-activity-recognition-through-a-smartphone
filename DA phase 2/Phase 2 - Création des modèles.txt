@@ -71,29 +71,30 @@ module(writeData;pFiWomen, sumAveragesWomen,nbValuesWomen,movement, pFiMen, sumA
 
 enddo
 
-else
-sortir "ERREUR : l'un des fichier n'a pu s'ouvrir"
-endif
-
 fclose(pFiTrainSet)
 fclose(pFiModel)
 fclose(pFiMen)
 fclose(pFiWomen)
+
+else
+sortir "ERREUR : l'un des fichier n'a pu s'ouvrir"
+endif
 ------
 
 module(lineProcessing; iLine, sumAverages, nbValues; sumAverages, nbValues)
 ---* lineProcessing
-iValue = 3
+// car le 1er Vacc commence à la 4ème colonne
+iRow = 4
 
-do while (on est pas à la fin de la ligne en cours && iValue < NB_DATA)
-pFiTrainset = Ligne n° iValue
-sumAverages[iValue] += valeur pointée par pFiTrainset 
-nbValues[iValue]++
-iValue++
+do while (on est pas à la fin de la ligne en cours && iRow < NB_DATA)
+pFiTrainset = ligne n° iLine, colonne n° iRow
+sumAverages[iRow] += valeur pointée par pFiTrainset (iLine, iRow)
+nbValues[iRow]++
+iRow++
 enddo
 ------
 
-module(posLineTrainSet;pFitrainSet, iLine,;iLine, pFitrainSet)
+module(posLineTrainSet;pFitrainSet, iLine;iLine, pFitrainSet)
 ---* posLineTrainSet
 iLine++
 pFiTrainSet = Ligne n° iLine dans "trainSet.csv"
@@ -108,19 +109,19 @@ module(writeGenderData;pFiWomen, movement;)
 
 module(writeGenderData;pFiMen, movement;)
 
-iVarAcc = 0
-do while (iVarAcc < NB_DATA)
+iVacc = 0
+do while (iVacc < NB_DATA)
 
-finalAverageWomen =  sumAveragesWomen[iVarAcc]/nbValuesWomen[iVarAcc]
+finalAverageWomen =  sumAveragesWomen[iVacc]/nbValuesWomen[iVacc]
 écrire finalAverageWomen dans pFiWomen
 
-finalAverageMen = sumAveragesMen[iVarAcc]/nbValuesMen[iVarAcc]
+finalAverageMen = sumAveragesMen[iVacc]/nbValuesMen[iVacc]
 écrire finalAverageMen dans pFiMen
 
 totalAverage = (finalAverageWomen  + finalAverageMen) / 2 
 écrire totalAverage  dans pFiModel 
 
-iVarAcc++
+iVacc++
 enddo
 ------
 
