@@ -38,6 +38,8 @@ error = fgets(title,LENGTH_TITLE, pFiTrainSet)
 sortir title
 error = fscanf_s(pFiTrainSet, "%d", &mov.move)
 
+paragraphe(Supprimer l'entête de pFiTrain)
+
 module(posLineTrainSet;pFitrainSet, iLine;iLine, pFitrainSet)
 
 do while (!eof(pFiTrainSet))

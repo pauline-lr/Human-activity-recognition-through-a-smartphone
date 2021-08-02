@@ -1,0 +1,120 @@
+struct model{
+	int mvt;
+	double v_acc[NB_TEMPS];
+};
+
+Constantes : 
+FI_MODEL = "fiModel.csv"
+FI_TEST_SET = "fiTest.csv"
+NB_MODELS = 6
+NB_DATA = 600
+NB_TESTS_MAX = 10000
+
+module(Evaluation of models;;)
+---* Evaluation of models
+fopen_s(&pFiModel, FI_MODEL , "r")
+fopen_s(&pFiTest, FI_TEST_SET, "r")
+
+if (pFiModel && pFiTest)
+  module(convertFileToTable; pFiModel; models)
+ 
+iLine = 1
+pFiTest= se positionner sur la Line n° 1 de "fiTest.csv"
+
+paragraphe(supprimer l'entête de "test.csv")
+
+nbTests = 0
+do while (!eof(pFiTest) && nbTests < NB_TESTS_MAX)
+
+module(posLine;pFiTest, iLine;iLine, pFiTest)
+
+movement = fscanf_s(pFiTest, "%d", &mov.move)
+currentMovement = movement    
+
+closestDistance = HV
+
+module(getV_acc; line, 4; v_accs, nbV_accs)
+  
+  iModel = 0
+    do while (iModel < NB_MODELS)
+
+      module(getDistance; model.v_accs, v_accs, nbV_accs; distance)
+
+      if (distance < closestDistance)
+        closestMovement = models[iModel].mvt
+        closestDistance = distance
+      endif
+      iModel++
+    enddo
+    estimateClasses[nbTests] = closestMovement 
+    realClasses[nbTests] = movement
+    nbTests++
+  enddo
+
+
+  module(displayResultsForEachClass; realClasses, estimateClasses, nbTests)
+  
+module(displayAccuracy; realClasses, estimateClass, nbTests)
+
+  module(displayClass; realClasses, estimateClass; nbTests)
+
+  fclose(pFiModel)
+  fclose(pFiTest)
+else
+sortir "ERREUR : ouverture fichier"
+endif
+----
+
+module(getDistance; model.V_accs, v_accs, nbV_accs; distance)
+---* getDistance
+  sumDistance = 0 
+  iV_acc = 0
+  do while(iV_acc < nbV_accs)
+    sumDistance += (v_accs[iV_acc] - model.V_accs[iV_acc]) * (v_accs[iV_acc] - model.V_accs[iV_acc])
+    iV_acc++
+  enddo
+
+  distance = racine(sumDistance)
+----
+
+module(convertFileToTable; pFiModel; models)
+---* convertFileToTable
+  nbModels = 0
+  
+paragraphe(supprimer l'entête de "fiModel.csv")
+
+  do while (!eof(pFiModel) && nbModels < NB_MODELS)
+    
+module(posLineModel;pFiModel, iLine;iLine, pFiModel)
+
+movement = fscanf_s(pFiModel, "%d", &mov.move)
+   
+ module(getV_acc; iLine, 2; V_accs, nbV_accs)
+
+    model.mvt = movement
+    model.v_accs = V_accs
+    models[nbModels] = model
+
+    nbModels++
+  enddo
+----
+
+module(getV_acc; iLine, iRow; V_accs)
+---* getV_acc
+  nbV_accs = 0
+
+pFiTestSet = ligne n° iLine, colonne n° iRow
+
+  do while (nbV_accs < NB_DATA)
+   V_accs[nbV_accs] = pFiTest;
+    nbV_accs++;
+pFiTestSet = ligne n° iLine, colonne n° iRow + nbV_accs
+  enddo 
+----
+
+module(posLineModel;pFi, iLine;iLine, pFi)
+---* posLineModel
+iLine++
+pFi = Ligne n° iLine dans le fichier pointé par pFi
+------
+
