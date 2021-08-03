@@ -3,4 +3,4 @@ project(PNDI_Phase_1_in_C C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(PNDI_Phase_1_in_C main.c test.c)
+add_executable(PNDI_Phase_1_in_C "DA phase 1.c" "phase 1.c")

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jonathansmith/Desktop/PNDI Phase 1 in C
+# Install script for directory: /Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/jonathansmith/Desktop/PNDI Phase 1 in C/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

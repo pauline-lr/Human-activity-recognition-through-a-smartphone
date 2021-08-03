@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/jonathansmith/Desktop/PNDI Phase 1 in C"
+CMAKE_SOURCE_DIR = "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/jonathansmith/Desktop/PNDI Phase 1 in C/cmake-build-debug"
+CMAKE_BINARY_DIR = "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jonathansmith/Desktop/PNDI Phase 1 in C/cmake-build-debug/CMakeFiles" "/Users/jonathansmith/Desktop/PNDI Phase 1 in C/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C/cmake-build-debug/CMakeFiles" "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jonathansmith/Desktop/PNDI Phase 1 in C/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI in C/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
