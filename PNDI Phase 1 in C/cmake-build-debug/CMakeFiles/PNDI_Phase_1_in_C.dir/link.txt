@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/PNDI_Phase_1_in_C.dir/main.c.o CMakeFiles/PNDI_Phase_1_in_C.dir/test.c.o -o PNDI_Phase_1_in_C 
