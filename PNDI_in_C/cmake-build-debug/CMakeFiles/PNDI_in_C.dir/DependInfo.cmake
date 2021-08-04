@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI_in_C/phase_1.c" "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI_in_C/cmake-build-debug/CMakeFiles/PNDI_in_C.dir/phase_1.c.o"
+  "D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/phase_1.c" "D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/cmake-build-debug/CMakeFiles/PNDI_in_C.dir/phase_1.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

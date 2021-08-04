@@ -3,6 +3,8 @@
 #define NUMBER_OF_FILES 360
 #define NUMBER_OF_DATA 600
 #define TITLE_LENGTH 50
+#define NB_MOVEMENTS 6
+#define MOVEMENT_LENGTH 4
 #define TRAINSET "trainSet.csv"
 #define TESTSET "testSet.csv"
 
@@ -14,6 +16,7 @@ char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
         "ups_3/", "ups_4/", "ups_12/",
         "wlk_7/", "wlk_8/", "wlk_15/"
 };
+
 
 void main(void) {
     double paths[NUMBER_OF_PATHS][PATH_LENGTH];
