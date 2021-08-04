@@ -17,6 +17,17 @@ int creationOfDataSet(){
                 for (int iFile = 0; iFile < NB_FILES; iFile++) {
                     //  récupérer le nom du fichier dans le tableau paths
                     strcpy_s(fileName, PATH_LENGTH, paths[iPath]);
+                    int genderCode = iFile + 1;
+                    int gender = genders[genderCode-1];
+                    // test genre
+                    if(genderCode == FEMME){
+                        strcpy_s(gender, GENDER_LENGTH, "Femme");
+                    }else if(genderCode == HOMME){
+                        strcpy_s(gender, GENDER_LENGTH, "Homme");
+                    }
+                    // écrire path
+                    // écrire un etst random
+
 
                     //  ouvrir le fichier avec son nom
 
@@ -25,18 +36,12 @@ int creationOfDataSet(){
                     int errorGender = readGender(genders);
 
                     if(gender == 0){
-                        // test genre
-                        if(genderCode == FEMME){
-                            strcpy_s(gender, GENDER_LENGTH, "Femme");
-                        }else if(genderCode == HOMME){
-                            strcpy_s(gender, GENDER_LENGTH, "Homme");
-                        }
+
                     }else{
                         return errorGender;
                     }
                 }
             }
-
             fclose(&pTestSetFile);
         } else {
             return FILE_OPEN;
