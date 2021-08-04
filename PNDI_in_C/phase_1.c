@@ -6,26 +6,33 @@
 
 int creationOfDataSet(){
     FILE *pTrainSetFile;
-    fopen_s(&pTrainSetFile, TRAINSET, "w");
+    fopen_s(&pTrainSetFile, TRAINSET, "w+");
     if (pTrainSetFile) {
-
         FILE *pTestSetFile;
-        fopen_s(&pTestSetFile, TESTSET, "w");
+        fopen_s(&pTestSetFile, TESTSET, "w+");
         if (pTestSetFile) {
-            for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
-                for (int iFile = 0; iFile < NUMBER_OF_FILES; iFile++) {
-                    //  récupérer le nom du fichier dans le tableau paths
+            // afficher les entête ddes 2 fichiers
 
+            for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
+                for (int iFile = 0; iFile < NB_FILES; iFile++) {
+                    //  récupérer le nom du fichier dans le tableau paths
                     strcpy_s(fileName, PATH_LENGTH, paths[iPath]);
 
                     //  ouvrir le fichier avec son nom
 
 
-                    // test genre
-                    if(genderCode == FEMME){
-                        strcpy_s(gender, GENDER_LENGTH, "Femme");
-                    }else if(genderCode == HOMME){
-                        strcpy_s(gender, GENDER_LENGTH, "Homme");
+                    // lire le genre de l'utilisateur en cours
+                    int errorGender = readGender(genders);
+
+                    if(gender == 0){
+                        // test genre
+                        if(genderCode == FEMME){
+                            strcpy_s(gender, GENDER_LENGTH, "Femme");
+                        }else if(genderCode == HOMME){
+                            strcpy_s(gender, GENDER_LENGTH, "Homme");
+                        }
+                    }else{
+                        return errorGender;
                     }
                 }
             }
@@ -40,4 +47,29 @@ int creationOfDataSet(){
     } else {
         return FILE_OPEN;
     }
+}
+
+int readGender(genders){
+    FILE* fiDataSubjectInfos;
+    char line[LINE_LENGTH];
+    int genderRead;
+
+    int error = fopen_s(&fiDataSubjectInfos, path, "r");
+    if(fiDataSubjectInfos){
+        // supprimer entête
+
+        for (int iUser = 0; iUser < NB_FILES; iUser++){
+            fgets(line, LINE_LENGTH, fiDataSubjectInfos);
+            genderRead = getGender();
+            genders[iUser] = genderRead;
+        }
+        fclose(fiDataSubjectInfos);
+        return NO_ERROR;
+    }else{
+        return FILE_OPEN;
+    }
+}
+
+int getGender(void){
+
 }
