@@ -10,8 +10,10 @@
 #define NB_MOVEMENTS 6
 #define MOVEMENT_LENGTH 4
 #define GENDER_LENGTH 10
+#define NB_USERS 24
 #define TRAINSET "trainSet.csv"
 #define TESTSET "testSet.csv"
+
 
 typedef  enum gender Gender;
 enum gender {
@@ -21,16 +23,21 @@ enum gender {
 
 void main(void) {
     char fileName[PATH_LENGTH];
-    int genderCode;
+    Gender genderCode;
     char gender[GENDER_LENGTH];
+    char path[PATH_LENGTH];
+    int usersGender[NB_USERS];
+    errno_t err;
+    errno_t errReadUsersGender = readUsersGender(usersGender);
+
 
     char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
-            "dws_1/", "dws_2/", "dws_11/",
-            "jog_9/", "jog_16/",
-            "sit_5/", "sit_13/",
-            "std_6/", "std_14/",
-            "ups_3/", "ups_4/", "ups_12/",
-            "wlk_7/", "wlk_8/", "wlk_15/"
+            "dws_1", "dws_2", "dws_11",
+            "jog_9", "jog_16",
+            "sit_5", "sit_13",
+            "std_6", "std_14",
+            "ups_3", "ups_4", "ups_12",
+            "wlk_7", "wlk_8", "wlk_15"
     };
 
     // pour gérer les mouvement on initialise un tableau
@@ -48,7 +55,9 @@ void main(void) {
             for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
                 for (int iFile = 0; iFile < NUMBER_OF_FILES; iFile++) {
                     //  récupérer le nom du fichier dans le tableau paths
+
                     strcpy_s(fileName, PATH_LENGTH, paths[iPath]);
+
                     //  ouvrir le fichier avec son nom
 
 

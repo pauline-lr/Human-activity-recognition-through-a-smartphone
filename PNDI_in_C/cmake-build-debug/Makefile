@@ -118,6 +118,30 @@ PNDI_in_C\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\build
 .PHONY : PNDI_in_C\fast
 
+main.obj: main.c.obj
+.PHONY : main.obj
+
+# target to build an object file
+main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\main.c.obj
+.PHONY : main.c.obj
+
+main.i: main.c.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\main.c.s
+.PHONY : main.c.s
+
 phase_1.obj: phase_1.c.obj
 .PHONY : phase_1.obj
 
@@ -151,6 +175,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... PNDI_in_C
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 	@echo ... phase_1.obj
 	@echo ... phase_1.i
 	@echo ... phase_1.s

@@ -74,17 +74,38 @@ CMakeFiles\PNDI_in_C.dir\phase_1.c.s: cmake_force
  /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\PNDI_in_C.dir\phase_1.c.s /c "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\phase_1.c"
 <<
 
+CMakeFiles\PNDI_in_C.dir\main.c.obj: CMakeFiles\PNDI_in_C.dir\flags.make
+CMakeFiles\PNDI_in_C.dir\main.c.obj: main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/PNDI_in_C.dir/main.c.obj"
+	C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\PNDI_in_C.dir\main.c.obj /FdCMakeFiles\PNDI_in_C.dir\ /FS -c "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\main.c"
+<<
+
+CMakeFiles\PNDI_in_C.dir\main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/PNDI_in_C.dir/main.c.i"
+	C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe > CMakeFiles\PNDI_in_C.dir\main.c.i @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\main.c"
+<<
+
+CMakeFiles\PNDI_in_C.dir\main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/PNDI_in_C.dir/main.c.s"
+	C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\PNDI_in_C.dir\main.c.s /c "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\main.c"
+<<
+
 # Object files for target PNDI_in_C
 PNDI_in_C_OBJECTS = \
-"CMakeFiles\PNDI_in_C.dir\phase_1.c.obj"
+"CMakeFiles\PNDI_in_C.dir\phase_1.c.obj" \
+"CMakeFiles\PNDI_in_C.dir\main.c.obj"
 
 # External object files for target PNDI_in_C
 PNDI_in_C_EXTERNAL_OBJECTS =
 
 PNDI_in_C.exe: CMakeFiles\PNDI_in_C.dir\phase_1.c.obj
+PNDI_in_C.exe: CMakeFiles\PNDI_in_C.dir\main.c.obj
 PNDI_in_C.exe: CMakeFiles\PNDI_in_C.dir\build.make
 PNDI_in_C.exe: CMakeFiles\PNDI_in_C.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable PNDI_in_C.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable PNDI_in_C.exe"
 	"D:\Program Files (x86)\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\PNDI_in_C.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.293\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\PNDI_in_C.dir\objects1.rsp @<<
  /out:PNDI_in_C.exe /implib:PNDI_in_C.lib /pdb:"D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\PNDI_in_C.pdb" /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

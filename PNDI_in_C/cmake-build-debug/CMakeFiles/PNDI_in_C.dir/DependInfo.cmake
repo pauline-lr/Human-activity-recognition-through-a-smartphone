@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/cmake-build-debug/main.c" "D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/cmake-build-debug/CMakeFiles/PNDI_in_C.dir/main.c.obj"
   "D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/phase_1.c" "D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/cmake-build-debug/CMakeFiles/PNDI_in_C.dir/phase_1.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "MSVC")

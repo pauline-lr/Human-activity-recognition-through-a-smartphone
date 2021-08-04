@@ -70,12 +70,12 @@ clean: CMakeFiles\PNDI_in_C.dir\clean
 CMakeFiles\PNDI_in_C.dir\all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target PNDI_in_C"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" --progress-num=1,2,3 "Built target PNDI_in_C"
 .PHONY : CMakeFiles\PNDI_in_C.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\PNDI_in_C.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles\PNDI_in_C.dir\rule

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/PNDI_in_C.dir/main.c.obj"
   "CMakeFiles/PNDI_in_C.dir/phase_1.c.obj"
   "PNDI_in_C.exe"
   "PNDI_in_C.exe.manifest"
