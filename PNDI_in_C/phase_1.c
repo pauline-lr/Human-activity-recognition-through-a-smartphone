@@ -13,28 +13,31 @@ int creationOfDataSet() {
         FILE *pTestSetFile;
         fopen_s(&pTestSetFile, TESTSET, "w+");
         if (pTestSetFile) {
-            // afficher les entête ddes 2 fichiers
 
+            // afficher les entêtes des 2 fichiers
             for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
                 for (int iFile = 0; iFile < NB_FILES; iFile++) {
+
                     //  récupérer le nom du fichier dans le tableau paths
                     strcpy_s(fileName, PATH_LENGTH, paths[iPath]);
                     int genderCode = iFile + 1;
                     int gender = genders[genderCode - 1];
+
                     // test genre
                     if (genderCode == FEMME) {
                         strcpy_s(gender, GENDER_LENGTH, "Femme");
                     } else if (genderCode == HOMME) {
                         strcpy_s(gender, GENDER_LENGTH, "Homme");
                     }
-                    // écrire path
-                    // écrire un etst random
 
+                    // écrire path
+
+                    // écrire un etst random
 
                     //  ouvrir le fichier avec son nom
 
-
                     // lire le genre de l'utilisateur en cours
+
                     int errorGender = readGender(genders);
 
                     if (gender == 0) {
@@ -48,7 +51,6 @@ int creationOfDataSet() {
         } else {
             return FILE_OPEN;
         }
-
         fclose(&pTrainSetFile);
         return NO_ERROR;
     } else {
