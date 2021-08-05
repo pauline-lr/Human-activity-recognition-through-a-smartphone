@@ -84,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/cmake-build-debug/main.c">
+		<Unit filename="D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/main.c">
 			<Option target="PNDI_in_C"/>
 		</Unit>
 		<Unit filename="D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/phase_1.c">
