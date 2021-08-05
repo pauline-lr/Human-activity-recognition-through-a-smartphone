@@ -4,7 +4,9 @@
 
 #include "header.h"
 
-int creationOfDataSet(){
+int readGender(genders);
+
+int creationOfDataSet() {
     FILE *pTrainSetFile;
     fopen_s(&pTrainSetFile, TRAINSET, "w+");
     if (pTrainSetFile) {
@@ -18,11 +20,11 @@ int creationOfDataSet(){
                     //  récupérer le nom du fichier dans le tableau paths
                     strcpy_s(fileName, PATH_LENGTH, paths[iPath]);
                     int genderCode = iFile + 1;
-                    int gender = genders[genderCode-1];
+                    int gender = genders[genderCode - 1];
                     // test genre
-                    if(genderCode == FEMME){
+                    if (genderCode == FEMME) {
                         strcpy_s(gender, GENDER_LENGTH, "Femme");
-                    }else if(genderCode == HOMME){
+                    } else if (genderCode == HOMME) {
                         strcpy_s(gender, GENDER_LENGTH, "Homme");
                     }
                     // écrire path
@@ -35,9 +37,9 @@ int creationOfDataSet(){
                     // lire le genre de l'utilisateur en cours
                     int errorGender = readGender(genders);
 
-                    if(gender == 0){
+                    if (gender == 0) {
 
-                    }else{
+                    } else {
                         return errorGender;
                     }
                 }
@@ -54,27 +56,27 @@ int creationOfDataSet(){
     }
 }
 
-int readGender(genders){
-    FILE* fiDataSubjectInfos;
+int readGender(genders) {
+    FILE *fiDataSubjectInfos;
     char line[LINE_LENGTH];
     int genderRead;
 
     int error = fopen_s(&fiDataSubjectInfos, path, "r");
-    if(fiDataSubjectInfos){
+    if (fiDataSubjectInfos) {
         // supprimer entête
 
-        for (int iUser = 0; iUser < NB_FILES; iUser++){
+        for (int iUser = 0; iUser < NB_FILES; iUser++) {
             fgets(line, LINE_LENGTH, fiDataSubjectInfos);
             genderRead = getGender();
             genders[iUser] = genderRead;
         }
         fclose(fiDataSubjectInfos);
         return NO_ERROR;
-    }else{
+    } else {
         return FILE_OPEN;
     }
 }
 
-int getGender(void){
+int getGender(void) {
 
 }

@@ -17,7 +17,6 @@ char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
         "wlk_7/", "wlk_8/", "wlk_15/"
 };
 
-
 void main(void) {
     double paths[NUMBER_OF_PATHS][PATH_LENGTH];
 

@@ -1,4 +1,19 @@
-"D:\Program Files (x86)\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C"
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI_in_C"
+-- The C compiler identification is AppleClang 12.0.5.12050022
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
 -- Configuring done
--- Generating done
--- Build files have been written to: D:/IG 2020-2021/Q3/PNDI/PNDI_in_C/cmake-build-debug
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    main.c
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: PNDI_in_C
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
