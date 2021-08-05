@@ -129,6 +129,30 @@ PNDI_in_C/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/build
 .PHONY : PNDI_in_C/fast
 
+main.o: main.c.o
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/main.c.s
+.PHONY : main.c.s
+
 phase_1.o: phase_1.c.o
 .PHONY : phase_1.o
 
@@ -153,6 +177,30 @@ phase_1.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/phase_1.c.s
 .PHONY : phase_1.c.s
 
+phase_2.o: phase_2.c.o
+.PHONY : phase_2.o
+
+# target to build an object file
+phase_2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/phase_2.c.o
+.PHONY : phase_2.c.o
+
+phase_2.i: phase_2.c.i
+.PHONY : phase_2.i
+
+# target to preprocess a source file
+phase_2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/phase_2.c.i
+.PHONY : phase_2.c.i
+
+phase_2.s: phase_2.c.s
+.PHONY : phase_2.s
+
+# target to generate assembly for a file
+phase_2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PNDI_in_C.dir/build.make CMakeFiles/PNDI_in_C.dir/phase_2.c.s
+.PHONY : phase_2.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... PNDI_in_C"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... phase_1.o"
 	@echo "... phase_1.i"
 	@echo "... phase_1.s"
+	@echo "... phase_2.o"
+	@echo "... phase_2.i"
+	@echo "... phase_2.s"
 .PHONY : help
 
 

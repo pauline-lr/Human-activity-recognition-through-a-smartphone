@@ -14,7 +14,7 @@ int creationOfDataSet(void) {
 
             // afficher les entêtes des 2 fichiers
             for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
-                for (int iFile = 0; iFile < NB_FILES; iFile++) {
+                for (int iFile = 0; iFile < NUMBER_OF_FILES; iFile++) {
 
                     //  récupérer le nom du fichier dans le tableau paths
                     strcpy_s(fileName, PATH_LENGTH, paths[iPath]);
@@ -63,9 +63,9 @@ int readGender(int genders[]) {
 
     int error = fopen_s(&fiDataSubjectInfos, path, "r");
     if (fiDataSubjectInfos) {
-        // supprimer entête
 
-        for (int iUser = 0; iUser < NB_FILES; iUser++) {
+        // supprimer entête
+        for (int iUser = 0; iUser < NUMBER_OF_FILES; iUser++) {
             fgets(line, LINE_LENGTH, fiDataSubjectInfos);
             genderRead = getGender();
             genders[iUser] = genderRead;
