@@ -4,9 +4,7 @@
 
 #include "header.h"
 
-int readGender(genders);
-
-int creationOfDataSet() {
+int creationOfDataSet(void) {
     FILE *pTrainSetFile;
     fopen_s(&pTrainSetFile, TRAINSET, "w+");
     if (pTrainSetFile) {
@@ -58,7 +56,7 @@ int creationOfDataSet() {
     }
 }
 
-int readGender(genders) {
+int readGender(int genders[]) {
     FILE *fiDataSubjectInfos;
     char line[LINE_LENGTH];
     int genderRead;

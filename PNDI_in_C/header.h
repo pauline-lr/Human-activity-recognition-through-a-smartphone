@@ -46,6 +46,8 @@
             "dws", "ups", "jog", "sit", "std", "wlk"
     };
 
-    int creationOfDataSet();
+    int creationOfDataSet(void);
+    int readGender(int genders []);
+    int getGender(void);
 
 #endif
