@@ -33,6 +33,7 @@ void main(void) {
                         break;
                     case 1:
                         gender = "Homme";
+                        break;
                 }
 
                 close file "data_subjects_info.csv"

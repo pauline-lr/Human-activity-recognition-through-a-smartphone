@@ -2,18 +2,25 @@
 #define HEADER_H
 
 #define NUMBER_OF_PATHS 15
-#define PATH_LENGTH 8
+#define PATH_LENGTH 15
+#define PATH_NAME_LENGTH 10
 #define NUMBER_OF_DATA 600
-#define TITLE_LENGTH 50
+#define TITLE_LENGTH 60
 #define NUMBER_OF_MOVEMENTS 6
-#define MOVEMENT_LENGTH 4
+#define MOVEMENT_LENGTH 3
 #define GENDER_LENGTH 10
 #define NUMBER_OF_FILES 24
+#define NUMBER_OF_USERS NUMBER_OF_FILES
 #define LINE_LENGTH 65
+#define NUMBER_OF_VACC_MAX 600
+#define FILE_LENGTH 15
+#define HEADER_LENGTH 50
+#define LINE_LENGTH_VACC 6000
+#define LENGTH_ACCESS_PATH 20
 #define DIRECTORY "Ressources/"
-#define TRAINSET DIRECTORY"trainSet.csv"
-#define TESTSET DIRECTORY"testSet.csv"
-#define DATA_SUBJECTS_INFO DIRECTORY"data_subjects_info.csv"
+#define TRAINSET DIRECTORY"trainSet"
+#define TESTSET DIRECTORY"testSet"
+#define DATA_SUBJECTS_INFO DIRECTORY"data_subjects_info"
 
 typedef enum error Error;
 enum error {
@@ -23,15 +30,15 @@ enum error {
 
 typedef enum gender Gender;
 enum gender {
-    FEMME,
-    HOMME
+    FEMME = 0,
+    HOMME = 1
 };
 
 char fileName[PATH_LENGTH];
-Gender genderCode;
-char gender[GENDER_LENGTH];
+//Gender genderCode;
 char path[PATH_LENGTH];
-int genders[NUMBER_OF_FILES];
+char movement[MOVEMENT_LENGTH];
+int genderCode;
 
 char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
         "dws_1", "dws_2", "dws_11",
