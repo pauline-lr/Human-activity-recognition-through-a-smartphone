@@ -5,12 +5,17 @@
 
 #include "header.h"
 
-void creationOfHeader(FILE* pFi);
+void creationOfHeader(FILE *pFi);
+
 void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber);
+
 int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
-const char* getField(char* line, int num);
+
+const char *getField(char *line, int num);
+
 int getMovement(char path[PATH_NAME_LENGTH]);
-void writeInformations(FILE * pFi, FILE* pPath, int index, int movement, int gender);
+
+void writeInformations(FILE *pFi, FILE *pPath, int index, int movement, int gender);
 
 
 int creationOfDataSet(void) {
@@ -47,7 +52,7 @@ int creationOfDataSet(void) {
 
                 for (int iFile = 0; iFile < NUMBER_OF_FILES; iFile++) {
                     //  récupérer le nom du fichier
-                    fileNameObtention(fileName, iFile+1);
+                    fileNameObtention(fileName, iFile + 1);
 
                     // ouvrir le fichier avec son nom
                     FILE *pFile;
@@ -58,7 +63,7 @@ int creationOfDataSet(void) {
 
                     fopen_s(&pFile, accessPath, "r");
 
-                    if(pFile != NULL){
+                    if (pFile != NULL) {
                         int genderCode = gendersOfUsers[iFile];
                         int userNumber = iFile + 1;
 
@@ -73,10 +78,10 @@ int creationOfDataSet(void) {
                         writeInformations(pTrainSetFile, pFile, index, movement, genderCode);
 
                         // écrire un test random
-                        if(iFile % 5 == 0)
+                        if (iFile % 5 == 0)
                             writeInformations(pTestSetFile, pFile, index, movement, genderCode);
 
-                    }else{
+                    } else {
                         return FILE_OPEN;
                     }
 
@@ -95,25 +100,25 @@ int creationOfDataSet(void) {
     }
 }
 
-void creationOfHeader(FILE* pFi){
+void creationOfHeader(FILE *pFi) {
     fprintf_s(pFi, "Mouvement, Genre, Index");
     for (int i = 0; i < NUMBER_OF_VACC_MAX; i++)
         fprintf_s(pFi, ",Vacc");
 }
 
-void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber){
+void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber) {
     strcpy_s(fileName, FILE_LENGTH, "sub_"); // car tous les fichiers comment par "sub_"
-    strcat(fileName, (char)fileNumber); // numéro du fichier de 1 à 24
-    strcat(fileName,".csv"); // extension du fichier
+    strcat(fileName, (char) fileNumber); // numéro du fichier de 1 à 24
+    strcat(fileName, ".csv"); // extension du fichier
 }
 
 
-int getMovement(char path[PATH_NAME_LENGTH]){
+int getMovement(char path[PATH_NAME_LENGTH]) {
     char movementName[MOVEMENT_LENGTH];
-    strncpy_s(movementName, MOVEMENT_LENGTH, path , MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
+    strncpy_s(movementName, MOVEMENT_LENGTH, path, MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
     int iMovement = 0;
-    while(iMovement < NUMBER_OF_MOVEMENTS
-            && strcmp(movement,movements[iMovement]) != 0){
+    while (iMovement < NUMBER_OF_MOVEMENTS
+           && strcmp(movement, movements[iMovement]) != 0) {
         iMovement++;
     }
     return iMovement;
@@ -144,11 +149,11 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
 /*Permet d'accéder à une données précise dans un fichier csv avec
  * le numéro de la ligne et le numéro de la colonne
  * source : https://stackoverflow.com/questions/12911299/read-csv-file-in-c*/
-const char* getField(char* line, int num){
-    const char* tok;
+const char *getField(char *line, int num) {
+    const char *tok;
     for (tok = strtok(line, ",");
-    tok && *tok;
-    tok = strtok(NULL, ",\n")){
+         tok && *tok;
+         tok = strtok(NULL, ",\n")) {
         if (!--num)
             return tok;
     }
@@ -156,7 +161,7 @@ const char* getField(char* line, int num){
 }
 
 
-void writeInformations(FILE * pFi, FILE* pPath, int index, int movement, int gender){
+void writeInformations(FILE *pFi, FILE *pPath, int index, int movement, int gender) {
     double vAcc;
     char line[LINE_LENGTH_VACC];
 
@@ -165,19 +170,19 @@ void writeInformations(FILE * pFi, FILE* pPath, int index, int movement, int gen
     // on écrit le mouvement, le genre et l'index
     fprintf_s(pFi, "%d, %d, %d", movement, gender, index);
 
-     /*Il faut maintenant générer les Vacc*/
-     for(int iData = 0;!feof(pPath) && iData < NUMBER_OF_VACC_MAX; iData++){
+    /*Il faut maintenant générer les Vacc*/
+    for (int iData = 0; !feof(pPath) && iData < NUMBER_OF_VACC_MAX; iData++) {
         fgets(line, LINE_LENGTH_VACC, pPath);
         char VAccX = getField(line, 11); // 11 car vAcc de x se trouve dans la 11ème colonne
-        int x = (int)VAccX;
+        int x = (int) VAccX;
 
         char VAccY = getField(line, 12);
-        int y = (int)VAccY;
+        int y = (int) VAccY;
 
         char VAccZ = getField(line, 13);
-        int z = (int)VAccZ;
+        int z = (int) VAccZ;
 
-        vAcc = sqrt(pow(x,2) + pow(y,2) + pow(z,2)); // varAcceleration = racine(x²+y²+z²)
+        vAcc = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2)); // varAcceleration = racine(x²+y²+z²)
         fprintf_s(pFi, ",%f", vAcc);
         iData++;
     }
