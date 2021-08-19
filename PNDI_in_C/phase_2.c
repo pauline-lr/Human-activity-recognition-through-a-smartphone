@@ -1,13 +1,9 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 #include "header.h"
 #include "tool.c"
 
 void createHeader(FILE* pFi);
-
-void initTab(double tab[NUMBER_OF_VACC_MAX]);
 
 void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]);
 
@@ -30,6 +26,7 @@ int creationsOfModels(void) {
     if ((pFiTrainSet != NULL) && (pFiModel != NULL) && (pFiMen != NULL) && (pFiWomen != NULL)) {
         int currentMovement;
         Data data;
+        int movement;
 
         createHeader(pFiWomen);
         createHeader(pFiMen);
@@ -40,7 +37,7 @@ int creationsOfModels(void) {
         fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
         while (!feof(pFiTrainSet)) {
             currentMovement = data.movement;
-            int movement = currentMovement;
+            movement = currentMovement;
 
             double sumAveragesMen[NUMBER_OF_VACC_MAX] = {0};
             double sumAveragesWomen[NUMBER_OF_VACC_MAX] = {0};
@@ -64,6 +61,7 @@ int creationsOfModels(void) {
         fclose(pFiModel);
         fclose(pFiMen);
         fclose(pFiWomen);
+        return NO_ERROR;
     } else {
         return FILE_OPEN;
     }
@@ -76,12 +74,6 @@ void createHeader(FILE* pFi){
         fprintf_s(pFi, ",%s", "Var");
     }
     fprintf_s(pFi, "\n");
-}
-
-
-void initTab(double tab[NUMBER_OF_VACC_MAX]) {
-    for (int i = 0; i < NUMBER_OF_VACC_MAX; i++)
-        tab[i] = 0;
 }
 
 void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]) {

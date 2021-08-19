@@ -43,7 +43,6 @@ struct data{
 char fileName[PATH_LENGTH];
 //Gender genderCode;
 char path[PATH_LENGTH];
-char movement[MOVEMENT_LENGTH];
 
 
 char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
