@@ -46,10 +46,10 @@ RM = "D:\Program Files (x86)\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C"
+CMAKE_SOURCE_DIR = "D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\PNDI_in_C"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\PNDI_in_C\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -76,9 +76,9 @@ rebuild_cache\fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\PNDI_in_C\cmake-build-debug\CMakeFiles" "D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\PNDI_in_C\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\PNDI\PNDI_in_C\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\PNDI_in_C\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +142,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\main.c.s
 .PHONY : main.c.s
 
+manage.obj: manage.c.obj
+.PHONY : manage.obj
+
+# target to build an object file
+manage.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\manage.c.obj
+.PHONY : manage.c.obj
+
+manage.i: manage.c.i
+.PHONY : manage.i
+
+# target to preprocess a source file
+manage.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\manage.c.i
+.PHONY : manage.c.i
+
+manage.s: manage.c.s
+.PHONY : manage.s
+
+# target to generate assembly for a file
+manage.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\manage.c.s
+.PHONY : manage.c.s
+
 phase_1.obj: phase_1.c.obj
 .PHONY : phase_1.obj
 
@@ -202,6 +226,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... manage.obj
+	@echo ... manage.i
+	@echo ... manage.s
 	@echo ... phase_1.obj
 	@echo ... phase_1.i
 	@echo ... phase_1.s

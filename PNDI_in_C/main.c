@@ -1,20 +1,19 @@
 #include <stdio.h>
 
 #include "header.h"
+#include "phase_1.c"
+#include "phase_2.c"
 
 int main(void) {
-    int error;
-
     printf("PHASE 1 : Creation of dataset  \n");
-    // appel à la phase 1
-    int errPhase1 = creationOfDataSet();/*code erreur phase 1*/
+    int errPhase1 = creationOfDataSet();
 
-    if (errPhase1 == 0) {
+    if (errPhase1 == NO_ERROR) {
         printf("\nPHASE 2 :  Creation of models\n");
-        /*//int errPhase2 = ; //code erreur phase 2
+        int errPhase2 = creationsOfModels();
         if (errPhase2 != 0) {
             displayError(errPhase2);
-        }*/
+        }
     } else {
         displayError(errPhase1);
     }
@@ -23,13 +22,11 @@ int main(void) {
 
 void displayError(int error) {
     switch (error) {
-        case 0:
+        case NO_ERROR:
             printf("No error\n");
             break;
-        case 1:
-            printf("ERROR : Open file\n");
-            break;
-        case 2:
-            break;
+            case FILE_OPEN:
+                printf("ERROR : Open file\n");
+                break;
     }
 }
