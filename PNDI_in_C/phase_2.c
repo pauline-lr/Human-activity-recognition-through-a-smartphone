@@ -5,11 +5,11 @@
 #include "header.h"
 #include "tool.c"
 
-void createHeader(FILE* pFi);
+void createHeader(FILE *pFi);
 
 void initTab(int tab[NUMBER_OF_VACC_MAX]);
 
-void lineProcessing(FILE* pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_OF_VACC_MAX]);
+void lineProcessing(FILE *pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_OF_VACC_MAX]);
 
 void writeData(FILE *pFiModel, FILE *pFiWomen, int sumAveragesWomen[NUMBER_OF_VACC_MAX],
                int nbValuesWomen[NUMBER_OF_VACC_MAX], int movement, FILE *pFiMen,
@@ -22,59 +22,77 @@ int creationsOfModels(void) {
     double nbValuesMen[NUMBER_OF_VACC_MAX];
     double nbValuesWomen[NUMBER_OF_VACC_MAX];
 
-    FILE *pFiTrainSet = NULL;
-    FILE *pFiModel = NULL;
-    FILE *pFiMen = NULL;
-    FILE *pFiWomen = NULL;
+    FILE *pTrainSetFile = NULL;
+    fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "r");
+    if (pTrainSetFile != NULL) {
 
-    fopen_s(&pFiTrainSet, TRAIN_SET_FILE, "r");
-    fopen_s(&pFiModel, MODEL_FILE, "w");
-    fopen_s(&pFiMen, MEN_MODEL_FILE, "w");
-    fopen_s(&pFiWomen, WOMEN_MODEL_FILE, "w");
+        FILE *pModelFile = NULL;
+        fopen_s(&pModelFile, MODEL_FILE, "w");
+        if (pModelFile != NULL) {
 
+            FILE *pMenModelFile = NULL;
+            fopen_s(&pMenModelFile, MEN_MODEL_FILE, "w");
+            if (pMenModelFile != NULL) {
 
-    if ((pFiTrainSet != NULL) && (pFiModel != NULL) && (pFiMen != NULL) && (pFiWomen != NULL)) {
-        int currentMovement;
-        Data data;
+                FILE *pWomenModelFile = NULL;
+                fopen_s(&pWomenModelFile, WOMEN_MODEL_FILE, "w");
+                if (pWomenModelFile != NULL) {
 
-        createHeader(pFiWomen);
-        createHeader(pFiMen);
-        createHeader(pFiModel);
+                    int currentMovement;
+                    Data data;
 
-        deleteHeader(pFiTrainSet);
+                    createHeader(pWomenModelFile);
+                    createHeader(pMenModelFile);
+                    createHeader(pModelFile);
 
-        fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
-        while (!feof(pFiTrainSet)) {
-            currentMovement = data.movement;
+                    deleteHeader(pTrainSetFile);
 
-            initTab(sumAveragesMen);
-            initTab(sumAveragesWomen);
-            initTab(nbValuesMen);
-            initTab(nbValuesWomen);
+                    fscanf_s(pTrainSetFile, "%d, %d, %d", &data.movement, &data.gender, &data.index);
+                    while (!feof(pTrainSetFile)) {
+                        currentMovement = data.movement;
 
-            while (!feof(pFiTrainSet) && currentMovement == movement) {
-                if (data.gender == FEMME) {
-                    lineProcessing(pFiTrainSet, sumAveragesWomen, nbValuesWomen);
-                } else if (data.gender == HOMME) {
-                    lineProcessing(pFiTrainSet, sumAveragesMen, nbValuesMen);
+                        initTab(sumAveragesMen);
+                        initTab(sumAveragesWomen);
+                        initTab(nbValuesMen);
+                        initTab(nbValuesWomen);
+
+                        while (!feof(pTrainSetFile) && currentMovement == movement) {
+                            if (data.gender == FEMME) {
+                                lineProcessing(pTrainSetFile, sumAveragesWomen, nbValuesWomen);
+                            } else if (data.gender == HOMME) {
+                                lineProcessing(pTrainSetFile, sumAveragesMen, nbValuesMen);
+                            }
+
+                            fscanf_s(pTrainSetFile, "%d, %d, %d", &data.movement, &data.gender, &data.index);
+                            currentMovement = data.movement;
+                        }
+
+                        writeData(pModelFile, pWomenModelFile, sumAveragesWomen, nbValuesWomen, movement, pMenModelFile,
+                                  sumAveragesMen, nbValuesMen);
+                    }
+
+                    fclose(pWomenModelFile);
+                } else {
+                    return FILE_OPEN;
                 }
 
-                fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
-                currentMovement = data.movement;
+                fclose(pMenModelFile);
+            } else {
+                return FILE_OPEN;
             }
 
-            writeData(pFiModel, pFiWomen, sumAveragesWomen, nbValuesWomen, movement, pFiMen, sumAveragesMen,nbValuesMen);
+            fclose(pModelFile);
+        } else {
+            return FILE_OPEN;
         }
-        fclose(pFiTrainSet);
-        fclose(pFiModel);
-        fclose(pFiMen);
-        fclose(pFiWomen);
+
+        fclose(pTrainSetFile);
     } else {
         return FILE_OPEN;
     }
 }
 
-void createHeader(FILE* pFi){
+void createHeader(FILE *pFi) {
     fprintf_s(pFi, "%s", "Mouvement");
 
     for (int i = 0; i < NUMBER_OF_VACC_MAX; i++) {
@@ -89,7 +107,7 @@ void initTab(int tab[NUMBER_OF_VACC_MAX]) {
         tab[i] = 0;
 }
 
-void lineProcessing(FILE* pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_OF_VACC_MAX]) {
+void lineProcessing(FILE *pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_OF_VACC_MAX]) {
     double value;
     int iVacc;
     for (iVacc = 0; iVacc < NUMBER_OF_VACC_MAX; iVacc++) {
@@ -98,7 +116,7 @@ void lineProcessing(FILE* pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_
         nbValues[iVacc]++;
     }
 
-    if(iVacc < NUMBER_OF_VACC_MAX){
+    if (iVacc < NUMBER_OF_VACC_MAX) {
         sumAverages[iVacc] = '\0';
         nbValues[iVacc] = '\0';
     }
@@ -117,9 +135,9 @@ void writeData(FILE *pFiModel, FILE *pFiWomen, int sumAveragesWomen[NUMBER_OF_VA
     fprintf_s(pFiWomen, "%d", movement);
 
     for (int iVacc = 0;
-            iVacc < NUMBER_OF_VACC_MAX
-            && sumAveragesWomen[iVacc] != '\0'
-            && sumAveragesMen[iVacc] != '\0'; iVacc++) {
+         iVacc < NUMBER_OF_VACC_MAX
+         && sumAveragesWomen[iVacc] != '\0'
+         && sumAveragesMen[iVacc] != '\0'; iVacc++) {
         finalAverageWomen = sumAveragesWomen[iVacc] / nbValuesWomen[iVacc];
         fprintf_s(pFiWomen, ",%f", finalAverageWomen);
 

@@ -8,13 +8,19 @@
 #include "tool.c"
 
 
-void creationOfHeader(FILE* pFi);
+void creationOfHeader(FILE *pFi);
+
 void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber);
+
 int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
+
 int getMovement(char path[PATH_NAME_LENGTH]);
-void writeDatas(FILE* pFi, Data data);
-Data extractVacc(FILE* pPath, Data data);
-void deleteHeader(FILE* pFi);
+
+void writeDatas(FILE *pFi, Data data);
+
+Data extractVacc(FILE *pPath, Data data);
+
+void deleteHeader(FILE *pFi);
 
 
 int creationOfDataSet(void) {
@@ -24,10 +30,10 @@ int creationOfDataSet(void) {
     retrieveGendersBysUsers(gendersOfUsers);
 
 
-    FILE* pTrainSetFile = NULL;
+    FILE *pTrainSetFile = NULL;
     fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "w+");
     if (pTrainSetFile != NULL) {
-        FILE* pTestSetFile = NULL;
+        FILE *pTestSetFile = NULL;
         fopen_s(&pTestSetFile, TEST_SET_FILE, "w+");
 
         if (pTestSetFile != NULL) {
@@ -58,7 +64,7 @@ int creationOfDataSet(void) {
                     fileNameObtention(fileName, iFile + 1);
 
                     // ouvrir le fichier avec son nom
-                    FILE* pFile;
+                    FILE *pFile;
                     char accessPath[LENGTH_ACCESS_PATH] = "A_DeviceMotion_data/";
                     strcat_s(accessPath, LENGTH_ACCESS_PATH, path);
                     strcat_s(accessPath, LENGTH_ACCESS_PATH, "/");
@@ -85,8 +91,7 @@ int creationOfDataSet(void) {
                         if (rand() % 5 == 0)
                             writeDatas(pTestSetFile, data);
 
-                    }
-                    else {
+                    } else {
                         return FILE_OPEN;
                     }
 
@@ -94,20 +99,17 @@ int creationOfDataSet(void) {
                 }
             }
             fclose(pTestSetFile);
-
-        }
-        else {
+        } else {
             return FILE_OPEN;
         }
         fclose(pTrainSetFile);
         return NO_ERROR;
-    }
-    else {
+    } else {
         return FILE_OPEN;
     }
 }
 
-void creationOfHeader(FILE* pFi) {
+void creationOfHeader(FILE *pFi) {
     fprintf_s(pFi, "%s,%s,%s", "Movement", "Gender", "Index");
     for (int i = 0; i < NUMBER_OF_VACC_MAX; i++)
         fprintf_s(pFi, ",%s", "Vacc");
@@ -125,14 +127,14 @@ int getMovement(char path[PATH_NAME_LENGTH]) {
     strncpy_s(movementName, MOVEMENT_LENGTH, path, MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
     int iMovement = 0;
     while (iMovement < NUMBER_OF_MOVEMENTS
-    && strcmp(movement, movements[iMovement]) != 0) {
+           && strcmp(movement, movements[iMovement]) != 0) {
         iMovement++;
     }
     return iMovement;
 }
 
 int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
-    FILE* pFiDataSubjectInfos;
+    FILE *pFiDataSubjectInfos;
     int uselessData;
     int genderRead;
 
@@ -151,14 +153,13 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
 
         fclose(pFiDataSubjectInfos);
         return NO_ERROR;
-    }
-    else {
+    } else {
         return FILE_OPEN;
     }
 }
 
 
-Data extractVacc(FILE* pPath, Data data) {
+Data extractVacc(FILE *pPath, Data data) {
     int line;
     double uselessData;
     double VaccX, VaccY, VaccZ;
@@ -195,7 +196,7 @@ Data extractVacc(FILE* pPath, Data data) {
     return data;
 }
 
-void writeDatas(FILE* pFi, Data data) {
+void writeDatas(FILE *pFi, Data data) {
     // on va à la ligne car on écrit sur la ligne suivante
     fprintf_s(pFi, "\n");
     // on écrit le mouvement, le genre et l'index
