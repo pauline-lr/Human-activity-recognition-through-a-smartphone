@@ -18,9 +18,12 @@
 #define LINE_LENGTH_VACC 6000
 #define LENGTH_ACCESS_PATH 20
 #define DIRECTORY "Ressources/"
-#define TRAINSET DIRECTORY"trainSet"
-#define TESTSET DIRECTORY"testSet"
-#define DATA_SUBJECTS_INFO DIRECTORY"data_subjects_info"
+#define TRAIN_SET_FILE DIRECTORY "trainSet.csv"
+#define TEST_SET_FILE DIRECTORY "testSet.csv"
+#define DATA_SUBJECTS_INFO_FILE DIRECTORY "data_subjects_info.csv"
+#define MODEL_FILE DIRECTORY "model.csv"
+#define MODEL_MEN_FILE DIRECTORY "modelMen.csv"
+#define MODEL_WOMEN_FILE DIRECTORY "modelWomen.csv"
 
 typedef enum error Error;
 enum error {

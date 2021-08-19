@@ -6,17 +6,11 @@
 #include "header.h"
 
 void creationOfHeader(FILE *pFi);
-
 void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber);
-
 int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
-
 const char *getField(char *line, int num);
-
 int getMovement(char path[PATH_NAME_LENGTH]);
-
 void writeInformations(FILE *pFi, FILE *pPath, int index, int movement, int gender);
-
 
 int creationOfDataSet(void) {
     /*je récupère d'abord tous les genres que je place dans un tableau
@@ -24,12 +18,11 @@ int creationOfDataSet(void) {
     int gendersOfUsers[NUMBER_OF_USERS];
     retrieveGendersBysUsers(gendersOfUsers);
 
-
     FILE *pTrainSetFile;
-    fopen_s(&pTrainSetFile, TRAINSET, "w+");
+    fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "w+");
     if (pTrainSetFile != NULL) {
         FILE *pTestSetFile;
-        fopen_s(&pTestSetFile, TESTSET, "w+");
+        fopen_s(&pTestSetFile, TEST_SET_FILE, "w+");
 
         if (pTestSetFile != NULL) {
             // créer les entête

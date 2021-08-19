@@ -5,20 +5,12 @@
 #include "header.h"
 
 // Constantes
-#define TRAIN_SET "trainSet.csv"
-#define FI_MODEL "fiModel.csv"
-#define FI_MODEL_MEN "fiModelMen.csv"
-#define FI_MODEL_WOMEN "fiModelWomen.csv"
 #define LG_PATH  10
 
 const char *getField(char *line, int num);
-
 int posLineTrainSet(FILE *pFi, int iLine, char line[LINE_LENGTH]);
-
 void initTab(int tab[NUMBER_OF_VACC_MAX]);
-
 void lineProcessing(char line[LINE_LENGTH], sumAveragesWomen[NUMBER_OF_VACC_MAX], nbValuesWomen[NUMBER_OF_VACC_MAX]);
-
 void writeData(FILE *pFiModel, FILE *pFiWomen, int sumAveragesWomen[NUMBER_OF_VACC_MAX],
                int nbValuesWomen[NUMBER_OF_VACC_MAX], int movement, FILE *pFiMen,
                int sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]);
@@ -30,62 +22,78 @@ int creationsOfModels(void) {
     double nbValuesMen[NUMBER_OF_VACC_MAX];
     double nbValuesWomen[NUMBER_OF_VACC_MAX];
 
-    FILE *pFiTrainSet = NULL;
-    FILE *pFiModel = NULL;
-    FILE *pFiMen = NULL;
-    FILE *pFiWomen = NULL;
+    FILE *pTrainSetFile;
+    fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "r");
+    if (pTrainSetFile != NULL) {
 
-    fopen_s(&pFiTrainSet, TRAIN_SET, "r");
-    fopen_s(&pFiModel, FI_MODEL, "w");
-    fopen_s(&pFiMen, FI_MODEL_MEN, "w");
-    fopen_s(&pFiWomen, FI_MODEL_WOMEN, "w");
+        FILE *pModelFile;
+        fopen_s(&pModelFile, MODEL_FILE, "w");
+        if (pModelFile != NULL) {
 
+            FILE *pMenFile;
+            fopen_s(&pMenFile, MODEL_MEN_FILE, "w");
+            if (pMenFile != NULL) {
 
-    if ((pFiTrainSet != NULL) && (pFiModel != NULL) && (pFiMen != NULL) && (pFiWomen != NULL)) {
-        char title[TITLE_LENGTH];
-        char line[LINE_LENGTH];
-        int error;
-        int iLine = 1;
-        int currentMovement;
-        // pFiTrainSet  = se positionner sur la Line n° 1 de "trainSet.csv"
-        // title = Ligne n° iLine pFiTrainSet
-        error = fgets(title, TITLE_LENGTH, pFiTrainSet);
-        // sortir title
-        // error = fscanf_s(pFiTrainSet, "%d", &mov.move);
-        iLine = posLineTrainSet(pFiTrainSet, iLine, line);
+                FILE *pWomenFile;
+                fopen_s(&pWomenFile, MODEL_WOMEN_FILE, "w");
+                if (pWomenFile != NULL) {
 
-        while (!feof(pFiTrainSet)) {
-            movement = fscanf_s(pFiTrainSet, "%d", &mov.move);
-            currentMovement = movement;
+                    char title[TITLE_LENGTH];
+                    char line[LINE_LENGTH];
+                    int error;
+                    int iLine = 1;
+                    int currentMovement;
+                    // pTrainSetFile  = se positionner sur la Line n° 1 de "trainSet.csv"
+                    // title = Ligne n° iLine pTrainSetFile
+                    error = fgets(title, TITLE_LENGTH, pTrainSetFile);
+                    // sortir title
+                    // error = fscanf_s(pTrainSetFile, "%d", &mov.move);
+                    iLine = posLineTrainSet(pTrainSetFile, iLine, line);
 
-            initTab(sumAveragesMen);
-            initTab(sumAveragesWomen);
-            initTab(nbValuesMen);
-            initTab(nbValuesWomen);
+                    while (!feof(pTrainSetFile)) {
+                        movement = fscanf_s(pTrainSetFile, "%d", &mov.move);
+                        currentMovement = movement;
 
-            while (!feof(pFiTrainSet) && currentMovement == movement) {
-                genderCode = (int) getField(line, 2);
-                posLineTrainSet(pFiTrainSet, iLine, line);
-                movement = fscanf_s(pFiTrainSet, "%d", &mov.move);
-                if (genderCode == FEMME) {
-                    lineProcessing(line, sumAveragesWomen, nbValuesWomen);
-                } else if (genderCode == HOMME) {
-                    lineProcessing(line, sumAveragesMen, nbValuesMen);
+                        initTab(sumAveragesMen);
+                        initTab(sumAveragesWomen);
+                        initTab(nbValuesMen);
+                        initTab(nbValuesWomen);
+
+                        while (!feof(pTrainSetFile) && currentMovement == movement) {
+                            genderCode = (int) getField(line, 2);
+                            posLineTrainSet(pTrainSetFile, iLine, line);
+                            movement = fscanf_s(pTrainSetFile, "%d", &mov.move);
+                            if (genderCode == FEMME) {
+                                lineProcessing(line, sumAveragesWomen, nbValuesWomen);
+                            } else if (genderCode == HOMME) {
+                                lineProcessing(line, sumAveragesMen, nbValuesMen);
+                            }
+                            posLineTrainSet(pTrainSetFile, iLine, line);
+                            movement = fscanf_s(pTrainSetFile, "%d", &mov.move);
+                            currentMovement = movement;
+                        }
+
+                        writeData(pModelFile, pWomenFile, sumAveragesWomen, nbValuesWomen, movement, pMenFile,
+                                  sumAveragesMen, nbValuesMen);
+                    }
+
+                    fclose(pWomenFile);
+                } else {
+                    return FILE_OPEN;
                 }
-                posLineTrainSet(pFiTrainSet, iLine, line);
-                movement = fscanf_s(pFiTrainSet, "%d", &mov.move);
-                currentMovement = movement;
+
+                fclose(pMenFile);
+            } else {
+                return FILE_OPEN;
             }
 
-            writeData(pFiModel, pFiWomen, sumAveragesWomen, nbValuesWomen, movement, pFiMen, sumAveragesMen,
-                      nbValuesMen);
-
-            fclose(pFiTrainSet);
-            fclose(pFiModel);
-            fclose(pFiMen);
-            fclose(pFiWomen);
+            fclose(pModelFile);
+        } else {
+            return FILE_OPEN;
         }
 
+        fclose(pTrainSetFile);
+        return NO_ERROR;
     } else {
         return FILE_OPEN;
     }
