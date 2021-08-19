@@ -1,10 +1,10 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" "/Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI_in_C"
--- The C compiler identification is AppleClang 12.0.5.12050022
+"D:\Program Files (x86)\CLion 2021.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" "D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\PNDI_in_C"
+-- The C compiler identification is MSVC 19.28.29336.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
--- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/cl.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/jonathansmith/Git/Informatique de Gestion/IG - Bloc 2/IG - B2 - Quadrimestre 2/IG - B2 - Q2 - De la Programmation Numérique à la Data Intelligence/PNDISecondeSess-LOREAPauline-SMITHJonathan/PNDI_in_C/cmake-build-debug
+-- Build files have been written to: D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/cmake-build-debug

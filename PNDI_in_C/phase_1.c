@@ -20,7 +20,6 @@ void writeDatas(FILE *pFi, Data data);
 
 Data extractVacc(FILE *pPath, Data data);
 
-void deleteHeader(FILE *pFi);
 
 
 int creationOfDataSet(void) {
@@ -128,7 +127,7 @@ int getMovement(char path[PATH_NAME_LENGTH]) {
     strncpy_s(movementName, MOVEMENT_LENGTH, path, MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
     int iMovement = 0;
     while (iMovement < NUMBER_OF_MOVEMENTS
-           && strcmp(movement, movements[iMovement]) != 0) {
+           && strcmp(movementName, movements[iMovement]) != 0) {
         iMovement++;
     }
     return iMovement;
