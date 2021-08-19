@@ -9,18 +9,12 @@
 
 
 void creationOfHeader(FILE *pFi);
-
 void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber);
-
 int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
-
 int getMovement(char path[PATH_NAME_LENGTH]);
-
+void deleteHeader(FILE *pFi) ;
 void writeDatas(FILE *pFi, Data data);
-
 Data extractVacc(FILE *pPath, Data data);
-
-
 
 int creationOfDataSet(void) {
     /*je récupère d'abord tous les genres que je place dans un tableau
@@ -205,4 +199,9 @@ void writeDatas(FILE *pFi, Data data) {
     for (int iData = 0; !feof(pFi) && iData < NUMBER_OF_VACC_MAX && data.Vacc[iData] != '\0'; iData++) {
         fprintf_s(pFi, ",%lf", data.Vacc[iData]);
     }
+}
+
+void deleteHeader(FILE *pFi) {
+    char line[LINE_LENGTH];
+    fgets(line, sizeof(line), pFi);
 }
