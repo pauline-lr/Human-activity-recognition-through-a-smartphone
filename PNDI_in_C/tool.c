@@ -3,8 +3,7 @@
 
 #include "header.h"
 
-
-void deleteHeader(FILE* pFi) {
+void deleteHeader(FILE *pFi) {
     char line[LINE_LENGTH];
     fgets(line, sizeof(line), pFi);
 }

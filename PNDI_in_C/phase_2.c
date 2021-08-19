@@ -3,9 +3,9 @@
 #include "header.h"
 #include "tool.c"
 
-void createHeader(FILE* pFi);
+void createHeader(FILE *pFi);
 
-void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]);
+void lineProcessing(FILE *pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]);
 
 void writeData(FILE *pFiModel, FILE *pFiWomen, double sumAveragesWomen[NUMBER_OF_VACC_MAX],
                int nbValuesWomen[NUMBER_OF_VACC_MAX], int movement, FILE *pFiMen,
@@ -59,7 +59,8 @@ int creationsOfModels(void) {
                             fscanf_s(pTrainSetFile, "%d, %d, %d", &data.movement, &data.gender, &data.index);
                             currentMovement = data.movement;
                         }
-                        writeData(pModelFile, pWomenModelFile, sumAveragesWomen, nbValuesWomen, data.movement, pMenModelFile, sumAveragesMen, nbValuesMen);
+                        writeData(pModelFile, pWomenModelFile, sumAveragesWomen, nbValuesWomen, data.movement,
+                                  pMenModelFile, sumAveragesMen, nbValuesMen);
                     }
 
                     fclose(pWomenModelFile);
@@ -78,12 +79,13 @@ int creationsOfModels(void) {
         }
 
         fclose(pTrainSetFile);
+        return NO_ERROR;
     } else {
         return FILE_OPEN;
     }
 }
 
-void createHeader(FILE* pFi){
+void createHeader(FILE *pFi) {
     fprintf_s(pFi, "%s", "Mouvement");
 
     for (int i = 0; i < NUMBER_OF_VACC_MAX; i++) {
@@ -92,7 +94,7 @@ void createHeader(FILE* pFi){
     fprintf_s(pFi, "\n");
 }
 
-void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]) {
+void lineProcessing(FILE *pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]) {
     double value;
     int iVacc;
     for (iVacc = 0; iVacc < NUMBER_OF_VACC_MAX; iVacc++) {
@@ -101,7 +103,7 @@ void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbVal
         nbValues[iVacc]++;
     }
 
-    if(iVacc < NUMBER_OF_VACC_MAX){
+    if (iVacc < NUMBER_OF_VACC_MAX) {
         sumAverages[iVacc] = '\0';
         nbValues[iVacc] = '\0';
     }
@@ -120,9 +122,9 @@ void writeData(FILE *pFiModel, FILE *pFiWomen, double sumAveragesWomen[NUMBER_OF
     fprintf_s(pFiWomen, "%d", movement);
 
     for (int iVacc = 0;
-            iVacc < NUMBER_OF_VACC_MAX
-            && sumAveragesWomen[iVacc] != '\0'
-            && sumAveragesMen[iVacc] != '\0'; iVacc++) {
+         iVacc < NUMBER_OF_VACC_MAX
+         && sumAveragesWomen[iVacc] != '\0'
+         && sumAveragesMen[iVacc] != '\0'; iVacc++) {
         finalAverageWomen = sumAveragesWomen[iVacc] / nbValuesWomen[iVacc];
         fprintf_s(pFiWomen, ",%f", finalAverageWomen);
 

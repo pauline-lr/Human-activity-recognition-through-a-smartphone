@@ -25,8 +25,8 @@ void displayError(int error) {
         case NO_ERROR:
             printf("No error\n");
             break;
-            case FILE_OPEN:
-                printf("ERROR : Open file\n");
-                break;
+        case FILE_OPEN:
+            printf("ERROR : Open file\n");
+            break;
     }
 }

@@ -34,15 +34,12 @@ enum gender {
 };
 
 typedef struct data Data;
-struct data{
+struct data {
     int movement;
     int gender;
     int index;
     double Vacc[NUMBER_OF_VACC_MAX];
 };
-
-
-
 
 char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
         "dws_1", "dws_2", "dws_11",
