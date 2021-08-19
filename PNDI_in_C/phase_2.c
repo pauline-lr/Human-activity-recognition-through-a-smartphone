@@ -13,21 +13,15 @@
 
 void createHeader(FILE* pFi);
 
-void initTab(int tab[NUMBER_OF_VACC_MAX]);
+void initTab(double tab[NUMBER_OF_VACC_MAX]);
 
-void lineProcessing(FILE* pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_OF_VACC_MAX]);
+void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]);
 
-void writeData(FILE *pFiModel, FILE *pFiWomen, int sumAveragesWomen[NUMBER_OF_VACC_MAX],
+void writeData(FILE *pFiModel, FILE *pFiWomen, double sumAveragesWomen[NUMBER_OF_VACC_MAX],
                int nbValuesWomen[NUMBER_OF_VACC_MAX], int movement, FILE *pFiMen,
-               int sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]);
+               double sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]);
 
 int creationsOfModels(void) {
-    // Structures
-    double sumAveragesMen[NUMBER_OF_VACC_MAX];
-    double sumAveragesWomen[NUMBER_OF_VACC_MAX];
-    double nbValuesMen[NUMBER_OF_VACC_MAX];
-    double nbValuesWomen[NUMBER_OF_VACC_MAX];
-
     FILE *pFiTrainSet = NULL;
     FILE *pFiModel = NULL;
     FILE *pFiMen = NULL;
@@ -52,11 +46,13 @@ int creationsOfModels(void) {
         fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
         while (!feof(pFiTrainSet)) {
             currentMovement = data.movement;
+            int movement = currentMovement;
 
-            initTab(sumAveragesMen);
-            initTab(sumAveragesWomen);
-            initTab(nbValuesMen);
-            initTab(nbValuesWomen);
+            double sumAveragesMen[NUMBER_OF_VACC_MAX] = {0};
+            double sumAveragesWomen[NUMBER_OF_VACC_MAX] = {0};
+            int nbValuesMen[NUMBER_OF_VACC_MAX] = {0};
+            int nbValuesWomen[NUMBER_OF_VACC_MAX] = {0};
+
 
             while (!feof(pFiTrainSet) && currentMovement == movement) {
                 if (data.gender == FEMME) {
@@ -68,8 +64,7 @@ int creationsOfModels(void) {
                 fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
                 currentMovement = data.movement;
             }
-
-            writeData(pFiModel, pFiWomen, sumAveragesWomen, nbValuesWomen, movement, pFiMen, sumAveragesMen,nbValuesMen);
+            writeData(pFiModel, pFiWomen, sumAveragesWomen, nbValuesWomen, data.movement, pFiMen, sumAveragesMen,nbValuesMen);
         }
         fclose(pFiTrainSet);
         fclose(pFiModel);
@@ -90,12 +85,12 @@ void createHeader(FILE* pFi){
 }
 
 
-void initTab(int tab[NUMBER_OF_VACC_MAX]) {
+void initTab(double tab[NUMBER_OF_VACC_MAX]) {
     for (int i = 0; i < NUMBER_OF_VACC_MAX; i++)
         tab[i] = 0;
 }
 
-void lineProcessing(FILE* pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_OF_VACC_MAX]) {
+void lineProcessing(FILE* pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]) {
     double value;
     int iVacc;
     for (iVacc = 0; iVacc < NUMBER_OF_VACC_MAX; iVacc++) {
@@ -110,9 +105,9 @@ void lineProcessing(FILE* pFi, sumAverages[NUMBER_OF_VACC_MAX], nbValues[NUMBER_
     }
 }
 
-void writeData(FILE *pFiModel, FILE *pFiWomen, int sumAveragesWomen[NUMBER_OF_VACC_MAX],
+void writeData(FILE *pFiModel, FILE *pFiWomen, double sumAveragesWomen[NUMBER_OF_VACC_MAX],
                int nbValuesWomen[NUMBER_OF_VACC_MAX], int movement, FILE *pFiMen,
-               int sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]) {
+               double sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]) {
     double finalAverageWomen, finalAverageMen, totalAverage;
 
     fprintf_s(pFiModel, "\n");
@@ -135,9 +130,4 @@ void writeData(FILE *pFiModel, FILE *pFiWomen, int sumAveragesWomen[NUMBER_OF_VA
         totalAverage = (finalAverageWomen + finalAverageMen) / 2;
         fprintf_s(pFiMen, ",%f", totalAverage);
     }
-
-    initTab(sumAveragesWomen);
-    initTab(nbValuesWomen);
-    initTab(sumAveragesMen);
-    initTab(nbValuesMen);
 }

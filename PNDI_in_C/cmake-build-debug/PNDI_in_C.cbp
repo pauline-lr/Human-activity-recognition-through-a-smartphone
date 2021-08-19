@@ -87,13 +87,13 @@
 		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/main.c">
 			<Option target="PNDI_in_C"/>
 		</Unit>
-		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/manage.c">
-			<Option target="PNDI_in_C"/>
-		</Unit>
 		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/phase_1.c">
 			<Option target="PNDI_in_C"/>
 		</Unit>
 		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/phase_2.c">
+			<Option target="PNDI_in_C"/>
+		</Unit>
+		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/tool.c">
 			<Option target="PNDI_in_C"/>
 		</Unit>
 		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/CMakeLists.txt">
