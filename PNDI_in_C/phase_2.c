@@ -70,13 +70,11 @@ int creationsOfModels(void) {
             }
 
             writeData(pFiModel, pFiWomen, sumAveragesWomen, nbValuesWomen, movement, pFiMen, sumAveragesMen,nbValuesMen);
-
-            fclose(pFiTrainSet);
-            fclose(pFiModel);
-            fclose(pFiMen);
-            fclose(pFiWomen);
         }
-
+        fclose(pFiTrainSet);
+        fclose(pFiModel);
+        fclose(pFiMen);
+        fclose(pFiWomen);
     } else {
         return FILE_OPEN;
     }
