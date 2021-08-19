@@ -19,6 +19,7 @@
 #define MODEL_FILE "model.csv"
 #define MEN_MODEL_FILE "menModel.csv"
 #define WOMEN_MODEL_FILE "womenModel.csv"
+#define DATA_SUBJECT_FILE "data_subjects_info.csv"
 
 typedef enum error Error;
 enum error {
@@ -40,10 +41,7 @@ struct data{
     double Vacc[NUMBER_OF_VACC_MAX];
 };
 
-char fileName[PATH_LENGTH];
-//Gender genderCode;
-char path[PATH_LENGTH];
-char movement[MOVEMENT_LENGTH];
+
 
 
 char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {

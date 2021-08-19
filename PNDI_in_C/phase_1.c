@@ -53,6 +53,7 @@ int creationOfDataSet(void) {
 
             for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
                 // intialisation du path en cours
+                char fileName[PATH_LENGTH];
                 char path[PATH_NAME_LENGTH];
                 strcpy_s(path, PATH_NAME_LENGTH, paths[iPath]);
 
@@ -138,7 +139,7 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
     int uselessData;
     int genderRead;
 
-    fopen_s(&pFiDataSubjectInfos, path, "r");
+    fopen_s(&pFiDataSubjectInfos, DATA_SUBJECT_FILE, "r");
     if (pFiDataSubjectInfos != NULL) {
         deleteHeader(pFiDataSubjectInfos);
         for (int iUser = 0; !feof(pFiDataSubjectInfos) && iUser < NUMBER_OF_USERS; iUser++) {
