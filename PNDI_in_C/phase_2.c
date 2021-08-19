@@ -5,12 +5,6 @@
 #include "header.h"
 #include "tool.c"
 
-// Constantes
-#define TRAIN_SET "trainSet.csv"
-#define FI_MODEL "fiModel.csv"
-#define FI_MODEL_MEN "fiModelMen.csv"
-#define FI_MODEL_WOMEN "fiModelWomen.csv"
-
 void createHeader(FILE* pFi);
 
 void initTab(int tab[NUMBER_OF_VACC_MAX]);
@@ -33,10 +27,10 @@ int creationsOfModels(void) {
     FILE *pFiMen = NULL;
     FILE *pFiWomen = NULL;
 
-    fopen_s(&pFiTrainSet, TRAIN_SET, "r");
-    fopen_s(&pFiModel, FI_MODEL, "w");
-    fopen_s(&pFiMen, FI_MODEL_MEN, "w");
-    fopen_s(&pFiWomen, FI_MODEL_WOMEN, "w");
+    fopen_s(&pFiTrainSet, TRAIN_SET_FILE, "r");
+    fopen_s(&pFiModel, MODEL_FILE, "w");
+    fopen_s(&pFiMen, MEN_MODEL_FILE, "w");
+    fopen_s(&pFiWomen, WOMEN_MODEL_FILE, "w");
 
 
     if ((pFiTrainSet != NULL) && (pFiModel != NULL) && (pFiMen != NULL) && (pFiWomen != NULL)) {
