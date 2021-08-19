@@ -14,7 +14,7 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
 int getMovement(char path[PATH_NAME_LENGTH]);
 void writeDatas(FILE* pFi, Data data);
 Data extractVacc(FILE* pPath, Data data);
-void deleteHeader(FILE* pFi);
+
 
 
 int creationOfDataSet(void) {
@@ -47,6 +47,7 @@ int creationOfDataSet(void) {
 
             for (int iPath = 0; iPath < NUMBER_OF_PATHS; iPath++) {
                 // intialisation du path en cours
+                char fileName[PATH_LENGTH];
                 char path[PATH_NAME_LENGTH];
                 strcpy_s(path, PATH_NAME_LENGTH, paths[iPath]);
 
@@ -125,7 +126,7 @@ int getMovement(char path[PATH_NAME_LENGTH]) {
     strncpy_s(movementName, MOVEMENT_LENGTH, path, MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
     int iMovement = 0;
     while (iMovement < NUMBER_OF_MOVEMENTS
-    && strcmp(movement, movements[iMovement]) != 0) {
+    && strcmp(movementName, movements[iMovement]) != 0) {
         iMovement++;
     }
     return iMovement;
@@ -136,7 +137,7 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
     int uselessData;
     int genderRead;
 
-    fopen_s(&pFiDataSubjectInfos, path, "r");
+    fopen_s(&pFiDataSubjectInfos, DATA_SUBJECT_FILE, "r");
     if (pFiDataSubjectInfos != NULL) {
         deleteHeader(pFiDataSubjectInfos);
         for (int iUser = 0; !feof(pFiDataSubjectInfos) && iUser < NUMBER_OF_USERS; iUser++) {
