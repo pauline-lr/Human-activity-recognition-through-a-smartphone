@@ -142,6 +142,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\main.c.s
 .PHONY : main.c.s
 
+manage.obj: manage.c.obj
+.PHONY : manage.obj
+
+# target to build an object file
+manage.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\manage.c.obj
+.PHONY : manage.c.obj
+
+manage.i: manage.c.i
+.PHONY : manage.i
+
+# target to preprocess a source file
+manage.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\manage.c.i
+.PHONY : manage.c.i
+
+manage.s: manage.c.s
+.PHONY : manage.s
+
+# target to generate assembly for a file
+manage.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\manage.c.s
+.PHONY : manage.c.s
+
 phase_1.obj: phase_1.c.obj
 .PHONY : phase_1.obj
 
@@ -190,30 +214,6 @@ phase_2.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\phase_2.c.s
 .PHONY : phase_2.c.s
 
-tool.obj: tool.c.obj
-.PHONY : tool.obj
-
-# target to build an object file
-tool.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\tool.c.obj
-.PHONY : tool.c.obj
-
-tool.i: tool.c.i
-.PHONY : tool.i
-
-# target to preprocess a source file
-tool.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\tool.c.i
-.PHONY : tool.c.i
-
-tool.s: tool.c.s
-.PHONY : tool.s
-
-# target to generate assembly for a file
-tool.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PNDI_in_C.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PNDI_in_C.dir\tool.c.s
-.PHONY : tool.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -226,15 +226,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... manage.obj
+	@echo ... manage.i
+	@echo ... manage.s
 	@echo ... phase_1.obj
 	@echo ... phase_1.i
 	@echo ... phase_1.s
 	@echo ... phase_2.obj
 	@echo ... phase_2.i
 	@echo ... phase_2.s
-	@echo ... tool.obj
-	@echo ... tool.i
-	@echo ... tool.s
 .PHONY : help
 
 
