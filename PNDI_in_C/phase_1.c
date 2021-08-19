@@ -33,9 +33,9 @@ int creationOfDataSet(void) {
     FILE *pTrainSetFile = NULL;
     fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "w+");
     if (pTrainSetFile != NULL) {
+
         FILE *pTestSetFile = NULL;
         fopen_s(&pTestSetFile, TEST_SET_FILE, "w+");
-
         if (pTestSetFile != NULL) {
             // créer les entête
             /*Pas dans le DA mais remarque de la prof à ce sujet*/

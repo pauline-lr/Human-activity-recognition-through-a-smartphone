@@ -12,56 +12,72 @@ void writeData(FILE *pFiModel, FILE *pFiWomen, double sumAveragesWomen[NUMBER_OF
                double sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]);
 
 int creationsOfModels(void) {
-    FILE *pFiTrainSet = NULL;
-    FILE *pFiModel = NULL;
-    FILE *pFiMen = NULL;
-    FILE *pFiWomen = NULL;
+    FILE *pTrainSetFile;
+    fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "r");
+    if (pTrainSetFile != NULL) {
 
-    fopen_s(&pFiTrainSet, TRAIN_SET_FILE, "r");
-    fopen_s(&pFiModel, MODEL_FILE, "w");
-    fopen_s(&pFiMen, MEN_MODEL_FILE, "w");
-    fopen_s(&pFiWomen, WOMEN_MODEL_FILE, "w");
+        FILE *pModelFile;
+        fopen_s(&pModelFile, MODEL_FILE, "w");
+        if (pModelFile != NULL) {
+
+            FILE *pMenModelFile;
+            fopen_s(&pMenModelFile, MEN_MODEL_FILE, "w");
+            if (pMenModelFile != NULL) {
+
+                FILE *pWomenModelFile;
+                fopen_s(&pWomenModelFile, WOMEN_MODEL_FILE, "w");
+                if (pWomenModelFile != NULL) {
+
+                    int currentMovement;
+                    Data data;
+                    int movement;
+
+                    createHeader(pWomenModelFile);
+                    createHeader(pMenModelFile);
+                    createHeader(pModelFile);
+
+                    deleteHeader(pTrainSetFile);
+
+                    fscanf_s(pTrainSetFile, "%d, %d, %d", &data.movement, &data.gender, &data.index);
+                    while (!feof(pTrainSetFile)) {
+                        currentMovement = data.movement;
+                        movement = currentMovement;
+
+                        double sumAveragesMen[NUMBER_OF_VACC_MAX] = {0};
+                        double sumAveragesWomen[NUMBER_OF_VACC_MAX] = {0};
+                        int nbValuesMen[NUMBER_OF_VACC_MAX] = {0};
+                        int nbValuesWomen[NUMBER_OF_VACC_MAX] = {0};
 
 
-    if ((pFiTrainSet != NULL) && (pFiModel != NULL) && (pFiMen != NULL) && (pFiWomen != NULL)) {
-        int currentMovement;
-        Data data;
-        int movement;
+                        while (!feof(pTrainSetFile) && currentMovement == movement) {
+                            if (data.gender == FEMME) {
+                                lineProcessing(pTrainSetFile, sumAveragesWomen, nbValuesWomen);
+                            } else if (data.gender == HOMME) {
+                                lineProcessing(pTrainSetFile, sumAveragesMen, nbValuesMen);
+                            }
 
-        createHeader(pFiWomen);
-        createHeader(pFiMen);
-        createHeader(pFiModel);
+                            fscanf_s(pTrainSetFile, "%d, %d, %d", &data.movement, &data.gender, &data.index);
+                            currentMovement = data.movement;
+                        }
+                        writeData(pModelFile, pWomenModelFile, sumAveragesWomen, nbValuesWomen, data.movement, pMenModelFile, sumAveragesMen, nbValuesMen);
+                    }
 
-        deleteHeader(pFiTrainSet);
-
-        fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
-        while (!feof(pFiTrainSet)) {
-            currentMovement = data.movement;
-            movement = currentMovement;
-
-            double sumAveragesMen[NUMBER_OF_VACC_MAX] = {0};
-            double sumAveragesWomen[NUMBER_OF_VACC_MAX] = {0};
-            int nbValuesMen[NUMBER_OF_VACC_MAX] = {0};
-            int nbValuesWomen[NUMBER_OF_VACC_MAX] = {0};
-
-
-            while (!feof(pFiTrainSet) && currentMovement == movement) {
-                if (data.gender == FEMME) {
-                    lineProcessing(pFiTrainSet, sumAveragesWomen, nbValuesWomen);
-                } else if (data.gender == HOMME) {
-                    lineProcessing(pFiTrainSet, sumAveragesMen, nbValuesMen);
+                    fclose(pWomenModelFile);
+                } else {
+                    return FILE_OPEN;
                 }
 
-                fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
-                currentMovement = data.movement;
+                fclose(pMenModelFile);
+            } else {
+                return FILE_OPEN;
             }
-            writeData(pFiModel, pFiWomen, sumAveragesWomen, nbValuesWomen, data.movement, pFiMen, sumAveragesMen,nbValuesMen);
+
+            fclose(pModelFile);
+        } else {
+            return FILE_OPEN;
         }
-        fclose(pFiTrainSet);
-        fclose(pFiModel);
-        fclose(pFiMen);
-        fclose(pFiWomen);
-        return NO_ERROR;
+
+        fclose(pTrainSetFile);
     } else {
         return FILE_OPEN;
     }
