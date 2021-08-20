@@ -1,16 +1,8 @@
 #include <stdio.h>
 
-#include "header.h"
-#include "tool.c"
+#include "Constantes.h"
+#include "Biblio.h"
 
-void createHeader(FILE *pFi);
-
-void lineProcessing(FILE *pFi, double sumAverages[NUMBER_OF_VACC_MAX], int nbValues[NUMBER_OF_VACC_MAX]);
-
-void writeData(FILE *pFiModel, FILE *pFiWomen, double sumAveragesWomen[NUMBER_OF_VACC_MAX],
-               int nbValuesWomen[NUMBER_OF_VACC_MAX], int movement, FILE *pFiMen,
-               double sumAveragesMen[NUMBER_OF_VACC_MAX], int nbValuesMen[NUMBER_OF_VACC_MAX]);
-void deleteHeader(FILE *pFi);
 
 int creationsOfModels(void) {
     FILE *pTrainSetFile;

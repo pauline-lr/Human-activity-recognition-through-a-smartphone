@@ -1,8 +1,7 @@
 #include <stdio.h>
 
-#include "header.h"
-#include "phase_1.c"
-#include "phase_2.c"
+#include "Constantes.h"
+#include "Biblio.h"
 
 int main(void) {
     printf("PHASE 1 : Creation of dataset  \n");

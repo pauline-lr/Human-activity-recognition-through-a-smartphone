@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/Biblio.h">
+			<Option target="PNDI_in_C"/>
+		</Unit>
 		<Unit filename="D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/main.c">
 			<Option target="PNDI_in_C"/>
 		</Unit>

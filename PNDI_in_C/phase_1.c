@@ -4,17 +4,24 @@
 #include <math.h>
 #include <time.h>
 
-#include "header.h"
-#include "tool.c"
+#include "Constantes.h"
+#include "Biblio.h"
 
 
-void creationOfHeader(FILE *pFi);
-void fileNameObtention(char fileName[FILE_LENGTH], int fileNumber);
-int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
-int getMovement(char path[PATH_NAME_LENGTH]);
-void deleteHeader(FILE *pFi) ;
-void writeDatas(FILE *pFi, Data data);
-Data extractVacc(FILE *pPath, Data data);
+char paths[NUMBER_OF_PATHS][PATH_LENGTH] = {
+        "dws_1", "dws_2", "dws_11",
+        "jog_9", "jog_16",
+        "sit_5", "sit_13",
+        "std_6", "std_14",
+        "ups_3", "ups_4", "ups_12",
+        "wlk_7", "wlk_8", "wlk_15"
+};
+
+// pour gérer les mouvement on initialise un tableau
+char movements[NUMBER_OF_MOVEMENTS][MOVEMENT_LENGTH] = {
+        "dws", "ups", "jog", "sit", "std", "wlk"
+};
+
 
 int creationOfDataSet(void) {
     /*je récupère d'abord tous les genres que je place dans un tableau
