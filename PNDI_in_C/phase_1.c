@@ -28,7 +28,7 @@ int creationOfDataSet(void) {
      * afin d'ouvrir le fichier "data_subjects_info.csv" une seule fois*/
     int gendersOfUsers[NUMBER_OF_USERS];
     retrieveGendersBysUsers(gendersOfUsers);
-
+    printf("les genre sont dans le tab");
 
     FILE *pTrainSetFile = NULL;
     fopen_s(&pTrainSetFile, TRAIN_SET_FILE, "w+");
@@ -93,6 +93,7 @@ int creationOfDataSet(void) {
                             writeDatas(pTestSetFile, data);
 
                     } else {
+                        printf("erreur ouverture fichier utilisateur");
                         return FILE_OPEN;
                     }
 
@@ -101,11 +102,13 @@ int creationOfDataSet(void) {
             }
             fclose(pTestSetFile);
         } else {
+            printf("erreur ouverture de testset");
             return FILE_OPEN;
         }
         fclose(pTrainSetFile);
         return NO_ERROR;
     } else {
+        printf("erreur ouverture de trainset");
         return FILE_OPEN;
     }
 }
@@ -140,8 +143,11 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
     int genderRead;
 
     fopen_s(&pFiDataSubjectInfos, DATA_SUBJECT_FILE, "r");
+    char header[15];
     if (pFiDataSubjectInfos != NULL) {
-        deleteHeader(pFiDataSubjectInfos);
+        //deleteHeader(pFiDataSubjectInfos);
+        fgets(header, sizeof(header), pFiDataSubjectInfos);
+
         for (int iUser = 0; !feof(pFiDataSubjectInfos) && iUser < NUMBER_OF_USERS; iUser++) {
             fscanf_s(pFiDataSubjectInfos, "%d,%d,%d,%d,%d\n",
                      &uselessData,
@@ -149,12 +155,14 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]) {
                      &uselessData,
                      &uselessData,
                      &genderRead);
+            getchar();
             genders[iUser] = genderRead;
         }
 
         fclose(pFiDataSubjectInfos);
         return NO_ERROR;
     } else {
+        printf("ERREUR OUV DATASUBJECTiNFOS");
         return FILE_OPEN;
     }
 }
@@ -182,7 +190,7 @@ Data extractVacc(FILE *pPath, Data data) {
                  &VaccX,
                  &VaccY,
                  &VaccZ);
-
+        getchar();
         data.Vacc[iData] = sqrt(pow(VaccX, 2) + pow(VaccY, 2) + pow(VaccZ, 2)); // varAcceleration = racine(x²+y²+z²)
         iData++;
     }

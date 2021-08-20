@@ -13,13 +13,13 @@
 #define FILE_LENGTH 15
 
 #define LENGTH_ACCESS_PATH 20
-#define DIRECTORY "Ressources/"
+#define DIRECTORY "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/PNDI_in_C/Ressources/"
 #define TRAIN_SET_FILE DIRECTORY "trainSet.csv"
 #define TEST_SET_FILE DIRECTORY "testSet.csv"
-#define MODEL_FILE "model.csv"
-#define MEN_MODEL_FILE "menModel.csv"
-#define WOMEN_MODEL_FILE "womenModel.csv"
-#define DATA_SUBJECT_FILE "data_subjects_info.csv"
+#define MODEL_FILE DIRECTORY "model.csv"
+#define MEN_MODEL_FILE DIRECTORY "menModel.csv"
+#define WOMEN_MODEL_FILE DIRECTORY "womenModel.csv"
+#define DATA_SUBJECT_FILE DIRECTORY "data_subjects_info.csv"
 
 typedef enum error Error;
 enum error {
