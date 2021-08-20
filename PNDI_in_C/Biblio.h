@@ -35,8 +35,6 @@ int retrieveGendersBysUsers(int genders[NUMBER_OF_USERS]);
 
 int getMovement(char path[PATH_NAME_LENGTH]);
 
-void deleteHeader(FILE *pFi);
-
 void writeDatas(FILE *pFi, Data data);
 
 Data extractVacc(FILE *pPath, Data data);
