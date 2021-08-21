@@ -1,0 +1,47 @@
+﻿  main.c
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\Constants.h(26,23): warning C4091: 'typedef ' : ignoré à gauche de 'codeError' quand aucune variable n'est déclarée
+  phase_1.c
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\Constants.h(26,23): warning C4091: 'typedef ' : ignoré à gauche de 'codeError' quand aucune variable n'est déclarée
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(26,26): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(26,26): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(26,26): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(26,26): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(27,27): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(27,27): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(27,27): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(27,27): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(37,25): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(47,48): warning C4090: 'fonction' : qualificateurs 'const' différents
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(79,50): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(79,50): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(79,50): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(79,50): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(79,50): warning C4129: 'A' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(82,36): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(82,36): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(82,36): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(82,36): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_1.c(82,36): warning C4129: 'd' : caractère de séquence d'échappement non reconnu
+  phase_2.c
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\Constants.h(26,23): warning C4091: 'typedef ' : ignoré à gauche de 'codeError' quand aucune variable n'est déclarée
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(14,27): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(14,27): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(14,27): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(14,27): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(15,24): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(15,24): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(15,24): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(15,24): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(15,24): warning C4129: 'm' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(16,22): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(16,22): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(16,22): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(16,22): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(16,22): warning C4129: 'm' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(17,24): warning C4129: 'I' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(17,24): warning C4129: 'Q' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(17,24): warning C4129: 'P' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(17,24): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Projet_PNDI_in_C_CLion\phase_2.c(17,24): warning C4129: 'w' : caractère de séquence d'échappement non reconnu
+  Génération de code en cours...
+  Visual Studio LOREA-SMITH.vcxproj -> D:\IG 2020-2021\Q3\Projet PNDI AOUT 2021\Visual Studio LOREA-SMITH\Debug\Visual Studio LOREA-SMITH.exe
