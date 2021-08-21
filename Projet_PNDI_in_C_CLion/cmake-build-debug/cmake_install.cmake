@@ -1,4 +1,4 @@
-# Install script for directory: D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Visual Studio LOREA-SMITH/Projet_PNDI_in_C
+# Install script for directory: D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C_CLion
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Visual Studio LOREA-SMITH/Projet_PNDI_in_C/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C_CLion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
