@@ -13,19 +13,18 @@
 #define HEADER_LENGTH_VACC 3000
 #define HEADER_LENGTH 20000
 
-
-#define FI_TRAINSET "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/trainSet.csv"
-#define PATH "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/A_DeviceMotion_data"
-#define FI_TESTSET "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/testSet.csv"
-#define FI_DATA_INFO "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/data_subjects_info.csv"
-#define FI_MODEL_WOMEN "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/womenModel.csv"
-#define FI_MODEL_MEN "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/menModel.csv"
-#define FI_MODEL "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/model.csv"
-
+#define ACCES_PATH "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C_CLion/ressources/"
+#define FI_TRAINSET ACCES_PATH "trainSet.csv"
+#define PATH ACCES_PATH "A_DeviceMotion_data"
+#define FI_TESTSET ACCES_PATH "testSet.csv"
+#define FI_DATA_INFO ACCES_PATH "data_subjects_info.csv"
+#define FI_MODEL_WOMEN ACCES_PATH "womenModel.csv"
+#define FI_MODEL_MEN ACCES_PATH "menModel.csv"
+#define FI_MODEL ACCES_PATH "model.csv"
 
 
 typedef enum codeError;
-enum codeError{
+enum codeError {
     NO_ERROR = 0,
     NO_OPEN_FILE = 1
 };
