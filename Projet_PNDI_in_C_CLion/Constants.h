@@ -13,14 +13,14 @@
 #define HEADER_LENGTH_VACC 3000
 #define HEADER_LENGTH 20000
 
-
-#define FI_TRAINSET "ressources\trainSet.csv"
-#define PATH "ressources\A_DeviceMotion_data"
-#define FI_TESTSET "ressources\testSet.csv"
-#define FI_DATA_INFO "ressources\data_subjects_info.csv"
-#define FI_MODEL_WOMEN "ressources\womenModel.csv"
-#define FI_MODEL_MEN "ressources\menModel.csv"
-#define FI_MODEL "ressources\model.csv"
+#define ACCESS_PATH "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C_CLion/ressources/"
+#define FI_TRAINSET ACCESS_PATH "trainSet.csv"
+#define PATH ACCESS_PATH "A_DeviceMotion_data"
+#define FI_TESTSET ACCESS_PATH "testSet.csv"
+#define FI_DATA_INFO ACCESS_PATH "data_subjects_info.csv"
+#define FI_MODEL_WOMEN ACCESS_PATH "womenModel.csv"
+#define FI_MODEL_MEN ACCESS_PATH "menModel.csv"
+#define FI_MODEL ACCESS_PATH "model.csv"
 
 
 typedef enum codeError;

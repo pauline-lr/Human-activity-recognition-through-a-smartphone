@@ -27,10 +27,10 @@ int creationOfDataSet(void) {
     fopen_s(&pFiTrainSet, FI_TRAINSET, "w");
 
     if (pFiTrainSet == NULL) {
-        printf("ERREUR : ouverture de trainSet.csv");
+        printf("ERREUR : ouverture de trainSet.csv\n");
         return NO_OPEN_FILE;
     } else if (pFiTestSet == NULL) {
-        printf("ERREUR : ouverture de testSet.csv");
+        printf("ERREUR : ouverture de testSet.csv\n");
         return NO_OPEN_FILE;
     } else {
         Data data;
@@ -148,7 +148,7 @@ Data getVAcc(FILE *pFile, Data data) {
     }
 
     if (iVAcc < NB_VACC)
-        data.vAcc[iVAcc] = 0;
+        data.vAcc[iVAcc] = '\0';
 
     return data;
 }
@@ -157,7 +157,7 @@ Data getVAcc(FILE *pFile, Data data) {
 void writeData(Data data, FILE *pFichier) {
     fprintf_s(pFichier, "%d,%d,%d", data.movement, data.gender, data.index);
 
-    for (int iVAcc = 0; data.vAcc[iVAcc] != 0 && iVAcc < NB_VACC; iVAcc++) {
+    for (int iVAcc = 0; data.vAcc[iVAcc] != '\0' && iVAcc < NB_VACC; iVAcc++) {
         fprintf_s(pFichier, ",%lf", data.vAcc[iVAcc]);
     }
     fprintf_s(pFichier, "\n");
