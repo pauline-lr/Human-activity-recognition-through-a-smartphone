@@ -13,25 +13,6 @@ Ce repository contient :
 * Code la phase 2
 * DA de la phase 3
 
-
-## Stades d'avancement 
-
-## 01-08
-Fin codage phase 1 <br> 
-en cours : réalisation da phase 3
-
-### 12-07
-Fin DA phase 2 <br>
-en cours : codage phase 1
-
-### 09-07
-Réalisation du DA de la phase 2 (non terminé)
-
-### 05-07
-Relecture du cours et des énoncés du projet <br>
-Objectif : coder la phase 1 et 2. Réaliser le DA de la phase 2 et 3.</br>
-✓ DA phase 1 ok 
-
 ---
 
 ### Sources 
