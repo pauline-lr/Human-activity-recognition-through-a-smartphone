@@ -9,14 +9,14 @@ int main(void) {
 
     if(codeErrorPhase1 == NO_ERROR){
         printf("FIN PHASE 1\n");
-        printf("_____________________");
+        printf("_____________________\n");
 
         printf("DEBUT PHASE 2 \n");
         int codeErrorPhase2 = creationOfModels();
 
         if(codeErrorPhase2 == NO_ERROR){
             printf("FIN PHASE 2 \n");
-            printf("_____________________");
+            printf("_____________________\n");
         }else{
             printf("PHASE 2 INTERROMPUE\n");
         }

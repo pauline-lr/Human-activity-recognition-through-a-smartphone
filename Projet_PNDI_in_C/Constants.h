@@ -11,6 +11,8 @@
 #define ABRV_MOVEMENT_LENGTH 3
 #define HEADER_DATA_LENGTH 150
 #define HEADER_LENGTH_VACC 3000
+#define HEADER_LENGTH 20000
+
 
 #define FI_TRAINSET "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/trainSet.csv"
 #define PATH "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/A_DeviceMotion_data"
@@ -19,7 +21,6 @@
 #define FI_MODEL_WOMEN "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/womenModel.csv"
 #define FI_MODEL_MEN "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/menModel.csv"
 #define FI_MODEL "D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/ressources/model.csv"
-#define HEADER_LENGTH 20000
 
 
 
