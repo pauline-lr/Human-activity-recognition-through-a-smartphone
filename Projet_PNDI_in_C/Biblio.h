@@ -34,6 +34,8 @@ void createHeader(FILE *pFi);
 
 void lineProcessing(FILE *pFi, double sumAverages[NB_VACC]);
 
+void writeModel(FILE* pFiModel, int movement, double sumAveragesMen[NB_VACC], double sumAveragesWomen[NB_VACC], int nbWomen, int nbMen);
+
 void writeGender(FILE *pFi, int movement, double sumAveragesGender[NB_VACC], int nbGender);
 
 

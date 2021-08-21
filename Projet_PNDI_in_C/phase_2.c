@@ -45,9 +45,9 @@ int creationOfModels(void) {
         int nbWomen = 0;
 
         fgets(header, HEADER_LENGTH, pFiTrainSet);
-        fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
 
         while (!feof(pFiTrainSet)) {
+            fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
             currentMovement = data.movement;
 
             while (!feof(pFiTrainSet) && data.movement == currentMovement) {
@@ -65,11 +65,7 @@ int creationOfModels(void) {
                 fscanf_s(pFiTrainSet, "%d, %d, %d", &data.movement, &data.gender, &data.index);
             } // fin bloc 2
 
-            fprintf(pFiModel, "%d", currentMovement);
-            for (int iVacc = 0; iVacc < NB_VACC; iVacc++)
-                fprintf(pFiModel, ",%lf", (sumAveragesMen[iVacc] + sumAveragesWomen[iVacc]) / (nbMen + nbWomen));
-            fprintf(pFiModel, "\n");
-
+            writeModel(pFiModel, currentMovement, sumAveragesMen, sumAveragesWomen, nbWomen, nbMen);
             writeGender(pFiWomen, currentMovement, sumAveragesWomen, nbWomen);
             writeGender(pFiMen, currentMovement, sumAveragesMen, nbMen);
 
@@ -112,6 +108,13 @@ void lineProcessing(FILE *pFi, double sumAverages[NB_VACC]) {
     if (iVacc < NB_VACC) {
         sumAverages[iVacc] = '\0';
     }
+}
+
+void writeModel(FILE* pFiModel, int movement, double sumAveragesMen[NB_VACC], double sumAveragesWomen[NB_VACC], int nbWomen, int nbMen){
+    fprintf(pFiModel, "%d", movement);
+    for (int iVacc = 0; iVacc < NB_VACC; iVacc++)
+        fprintf(pFiModel, ",%lf", (sumAveragesMen[iVacc] + sumAveragesWomen[iVacc]) / (nbMen + nbWomen));
+    fprintf(pFiModel, "\n");
 }
 
 void writeGender(FILE *pFi, int movement, double sumAveragesGender[NB_VACC], int nbGender) {
