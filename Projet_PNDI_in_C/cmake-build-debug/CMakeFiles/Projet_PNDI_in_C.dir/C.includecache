@@ -1,0 +1,50 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Biblio.h
+stdio.h
+-
+Constants.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Constants.h
+
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Constants.h
+
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/main.c
+stdio.h
+-
+Constants.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Constants.h
+Biblio.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Biblio.h
+
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/phase_1.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+time.h
+-
+Constants.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Constants.h
+Biblio.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Biblio.h
+
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/phase_2.c
+stdio.h
+-
+math.h
+-
+Constants.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Constants.h
+Biblio.h
+D:/IG 2020-2021/Q3/Projet PNDI AOUT 2021/Projet_PNDI_in_C/Biblio.h
+
