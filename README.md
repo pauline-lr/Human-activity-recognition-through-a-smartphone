@@ -13,6 +13,9 @@ Ce repository contient :
 * Code la phase 2
 * DA de la phase 3
 
+# A Noter
+* le code du projet se trouve dans le dossier "Projet_PNDI_in_C"
+* Jonathan utilisant MacOS, nous avons réalisé le projet sous CLion
 ---
 
 ### Sources 
