@@ -1,6 +1,6 @@
 struct model{
-	int mvt;
-	double v_acc[NB_TEMPS];
+  int mvt;
+  double v_acc[NB_TEMPS];
 };
 
 Constantes : 
@@ -16,7 +16,7 @@ fopen_s(&pFiModel, FI_MODEL , "r")
 fopen_s(&pFiTest, FI_TEST_SET, "r")
 
 if (pFiModel && pFiTest)
-  module(convertFileToTable; pFiModel; models)
+module(convertFileToTable; pFiModel; models)
  
 iLine = 1
 pFiTest= se positionner sur la Line n° 1 de "fiTest.csv"
@@ -25,13 +25,13 @@ paragraphe(supprimer l'entête de "test.csv")
 
 nbTests = 0
 do while (!eof(pFiTest) && nbTests < NB_TESTS_MAX)
+closestDistance = HV
 
 module(posLine;pFiTest, iLine;iLine, pFiTest)
 
 movement = fscanf_s(pFiTest, "%d", &mov.move)
 currentMovement = movement    
 
-closestDistance = HV
 
 module(getV_acc; line, 4; v_accs, nbV_accs)
   
@@ -70,7 +70,7 @@ module(getDistance; model.V_accs, v_accs, nbV_accs; distance)
   sumDistance = 0 
   iV_acc = 0
   do while(iV_acc < nbV_accs)
-    sumDistance += (v_accs[iV_acc] - model.V_accs[iV_acc]) * (v_accs[iV_acc] - model.V_accs[iV_acc])
+    sumDistance += (v_accs[iV_acc] - model.V_accs[iV_acc])²
     iV_acc++
   enddo
 
@@ -79,15 +79,14 @@ module(getDistance; model.V_accs, v_accs, nbV_accs; distance)
 
 module(convertFileToTable; pFiModel; models)
 ---* convertFileToTable
-  nbModels = 0
+nbModels = 0
   
 paragraphe(supprimer l'entête de "fiModel.csv")
 
   do while (!eof(pFiModel) && nbModels < NB_MODELS)
-    
-module(posLineModel;pFiModel, iLine;iLine, pFiModel)
+paragraphe(lire ligne n° nbModels + 1)    
 
-movement = fscanf_s(pFiModel, "%d", &mov.move)
+fscanf_s(pFiModel, "%d", &mov.move)
    
  module(getV_acc; iLine, 2; V_accs, nbV_accs)
 
@@ -106,7 +105,7 @@ module(getV_acc; iLine, iRow; V_accs)
 pFiTestSet = ligne n° iLine, colonne n° iRow
 
   do while (nbV_accs < NB_DATA)
-   V_accs[nbV_accs] = pFiTest;
+   V_accs[nbV_accs] = valeur pointée par pFiTest;
     nbV_accs++;
 pFiTestSet = ligne n° iLine, colonne n° iRow + nbV_accs
   enddo 
