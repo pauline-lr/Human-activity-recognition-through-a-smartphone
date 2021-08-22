@@ -6,10 +6,10 @@
 
 
 int creationOfModels(void) {
-    FILE *pFiTrainSet = NULL;
-    FILE *pFiModel = NULL;
-    FILE *pFiMen = NULL;
-    FILE *pFiWomen = NULL;
+    FILE* pFiTrainSet = NULL;
+    FILE* pFiModel = NULL;
+    FILE* pFiMen = NULL;
+    FILE* pFiWomen = NULL;
 
     fopen_s(&pFiTrainSet, FI_TRAINSET, "r");
     fopen_s(&pFiModel, FI_MODEL, "w");
@@ -19,16 +19,20 @@ int creationOfModels(void) {
     if (pFiTrainSet == NULL) {
         printf("ERREUR : ouverture de trainSet.csv");
         return NO_OPEN_FILE;
-    } else if (pFiModel == NULL) {
+    }
+    else if (pFiModel == NULL) {
         printf("ERREUR : ouverture de model.csv");
         return NO_OPEN_FILE;
-    } else if (pFiMen == NULL) {
+    }
+    else if (pFiMen == NULL) {
         printf("ERREUR : ouverture de menModel.csv");
         return NO_OPEN_FILE;
-    } else if (pFiWomen == NULL) {
+    }
+    else if (pFiWomen == NULL) {
         printf("ERREUR : ouverture de womenModel.csv");
         return NO_OPEN_FILE;
-    } else {
+    }
+    else {
         createHeader(pFiWomen);
         createHeader(pFiMen);
         createHeader(pFiModel);
@@ -38,8 +42,8 @@ int creationOfModels(void) {
 
 
         Data data;
-        double sumAveragesMen[NB_VACC] = {0};
-        double sumAveragesWomen[NB_VACC] = {0};
+        double sumAveragesMen[NB_VACC] = { 0 };
+        double sumAveragesWomen[NB_VACC] = { 0 };
 
         int nbMen = 0;
         int nbWomen = 0;
@@ -55,7 +59,8 @@ int creationOfModels(void) {
                     nbWomen++;
                     lineProcessing(pFiTrainSet, sumAveragesWomen);
                     printf("Index %d - Mouvement %d - ecriture d'une femme\n", data.index, data.movement);
-                } else if (data.gender == MEN) {
+                }
+                else if (data.gender == MEN) {
                     nbMen++;
                     lineProcessing(pFiTrainSet, sumAveragesMen);
                     printf("Index %d - Mouvement %d - ecriture d'un homme\n", data.index, data.movement);
@@ -86,7 +91,7 @@ int creationOfModels(void) {
     return NO_ERROR;
 }
 
-void createHeader(FILE *pFi) {
+void createHeader(FILE* pFi) {
     fprintf_s(pFi, "%s", "Movement");
 
     for (int i = 0; i < NB_VACC; i++) {
@@ -95,7 +100,7 @@ void createHeader(FILE *pFi) {
     fprintf_s(pFi, "\n");
 }
 
-void lineProcessing(FILE *pFi, double sumAverages[NB_VACC]) {
+void lineProcessing(FILE* pFi, double sumAverages[NB_VACC]) {
     double value;
     int iVacc;
     fscanf_s(pFi, ",%lf", &value);
@@ -110,18 +115,17 @@ void lineProcessing(FILE *pFi, double sumAverages[NB_VACC]) {
     }
 }
 
-void writeModel(FILE* pFiModel, int movement, double sumAveragesMen[NB_VACC], double sumAveragesWomen[NB_VACC], int nbWomen, int nbMen){
+void writeModel(FILE* pFiModel, int movement, double sumAveragesMen[NB_VACC], double sumAveragesWomen[NB_VACC], int nbWomen, int nbMen) {
     fprintf(pFiModel, "%d", movement);
     for (int iVacc = 0; iVacc < NB_VACC; iVacc++)
         fprintf(pFiModel, ",%lf", (sumAveragesMen[iVacc] + sumAveragesWomen[iVacc]) / (nbMen + nbWomen));
     fprintf(pFiModel, "\n");
 }
 
-void writeGender(FILE *pFi, int movement, double sumAveragesGender[NB_VACC], int nbGender) {
+void writeGender(FILE* pFi, int movement, double sumAveragesGender[NB_VACC], int nbGender) {
     fprintf(pFi, "%d", movement);
     for (int iGender = 0; iGender < NB_VACC && isnan(sumAveragesGender[iGender]) != 1; iGender++) {
         fprintf(pFi, ",%lf", sumAveragesGender[iGender] / nbGender);
     }
     fprintf(pFi, "\n");
 }
-

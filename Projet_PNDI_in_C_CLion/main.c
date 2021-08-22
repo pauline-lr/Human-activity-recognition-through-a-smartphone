@@ -17,10 +17,12 @@ int main(void) {
         if (codeErrorPhase2 == NO_ERROR) {
             printf("FIN PHASE 2 \n");
             printf("_____________________\n");
-        } else {
+        }
+        else {
             printf("PHASE 2 INTERROMPUE\n");
         }
-    } else {
+    }
+    else {
         printf("PHASE 1 INTERROMPUE\n");
     }
     return 0;

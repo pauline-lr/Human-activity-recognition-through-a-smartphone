@@ -20,8 +20,8 @@ const char paths[NB_PATH][PATH_LENGTH] = {
 
 
 int creationOfDataSet(void) {
-    FILE *pFiTestSet = NULL;
-    FILE *pFiTrainSet = NULL;
+    FILE* pFiTestSet = NULL;
+    FILE* pFiTrainSet = NULL;
 
     fopen_s(&pFiTestSet, FI_TESTSET, "w");
     fopen_s(&pFiTrainSet, FI_TRAINSET, "w");
@@ -29,10 +29,12 @@ int creationOfDataSet(void) {
     if (pFiTrainSet == NULL) {
         printf("ERREUR : ouverture de trainSet.csv\n");
         return NO_OPEN_FILE;
-    } else if (pFiTestSet == NULL) {
+    }
+    else if (pFiTestSet == NULL) {
         printf("ERREUR : ouverture de testSet.csv\n");
         return NO_OPEN_FILE;
-    } else {
+    }
+    else {
         Data data;
         srand(time(NULL));
 
@@ -61,7 +63,7 @@ int creationOfDataSet(void) {
     return NO_ERROR;
 }
 
-void creationOfHeader(FILE *pFi) {
+void creationOfHeader(FILE* pFi) {
     fprintf_s(pFi, "%s,%s,%s", "Movement", "Gender", "Index");
     for (int i = 0; i < NB_VACC; i++)
         fprintf_s(pFi, ",%s", "Vacc");
@@ -69,8 +71,8 @@ void creationOfHeader(FILE *pFi) {
 }
 
 Data extractData(char pathName[], int iFile, int index) {
-    FILE *pFile = NULL;
-    FILE *pFiDataSubjectsInfos = NULL;
+    FILE* pFile = NULL;
+    FILE* pFiDataSubjectsInfos = NULL;
     Data data;
     char path[ACCESS_PATH_LENGTH];
     char currentPath[ACCESS_PATH_LENGTH];
@@ -83,9 +85,11 @@ Data extractData(char pathName[], int iFile, int index) {
 
     if (pFiDataSubjectsInfos == NULL) {
         printf("ERREUR : ouverture de dataSubjectInfos.csv\n");
-    } else if (pFile == NULL) {
+    }
+    else if (pFile == NULL) {
         printf("ERREUR : ouverture de %s.csv\n", pathName);
-    } else {
+    }
+    else {
         data.movement = getMovement(pathName) + 1;
 
         data = getGender(pFiDataSubjectsInfos, data, iFile);
@@ -104,7 +108,7 @@ Data extractData(char pathName[], int iFile, int index) {
 int getMovement(char path[ACCESS_PATH_LENGTH]) {
     char movementName[MOVEMENT_LENGTH];
     strncpy_s(movementName, MOVEMENT_LENGTH, path,
-              ABRV_MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
+        ABRV_MOVEMENT_LENGTH); // l'abréviation d'un movement est de 3 caractères
     int iMovement = 0;
     while (iMovement < NB_MOVEMENTS && strcmp(movementName, movements[iMovement]) != 0) {
         iMovement++;
@@ -112,18 +116,18 @@ int getMovement(char path[ACCESS_PATH_LENGTH]) {
     return iMovement;
 }
 
-Data getGender(FILE *pFiDataSubjectsInfos, Data data, int iUser) {
+Data getGender(FILE* pFiDataSubjectsInfos, Data data, int iUser) {
     int code, uselessDataGender, gender;
     char headerDataSubjectsInfos[HEADER_DATA_LENGTH];
     fgets(headerDataSubjectsInfos, HEADER_DATA_LENGTH, pFiDataSubjectsInfos);
     int iGender = 0;
     while (!feof(pFiDataSubjectsInfos) && iGender < NB_FILE) {
         fscanf_s(pFiDataSubjectsInfos, "%d,%d,%d,%d,%d\n",
-                 &code,
-                 &uselessDataGender,
-                 &uselessDataGender,
-                 &uselessDataGender,
-                 &gender);
+            &code,
+            &uselessDataGender,
+            &uselessDataGender,
+            &uselessDataGender,
+            &gender);
 
         if (code == iUser)
             data.gender = gender;
@@ -132,7 +136,7 @@ Data getGender(FILE *pFiDataSubjectsInfos, Data data, int iUser) {
     return data;
 }
 
-Data getVAcc(FILE *pFile, Data data) {
+Data getVAcc(FILE* pFile, Data data) {
     int line;
     double uselessData;
     double accX, accY, accZ;
@@ -142,8 +146,8 @@ Data getVAcc(FILE *pFile, Data data) {
     fgets(header, HEADER_LENGTH_VACC, pFile);
     for (iVAcc = 0; !feof(pFile) && iVAcc < NB_VACC; iVAcc++) {
         fscanf_s(pFile, "%d,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf\n",
-                 &line, &uselessData, &uselessData, &uselessData, &uselessData, &uselessData,
-                 &uselessData, &uselessData, &uselessData, &uselessData, &accX, &accY, &accZ);
+            &line, &uselessData, &uselessData, &uselessData, &uselessData, &uselessData,
+            &uselessData, &uselessData, &uselessData, &uselessData, &accX, &accY, &accZ);
         data.vAcc[iVAcc] = sqrt(pow(accX, 2) + pow(accY, 2) + pow(accZ, 2));
     }
 
@@ -154,7 +158,7 @@ Data getVAcc(FILE *pFile, Data data) {
 }
 
 
-void writeData(Data data, FILE *pFichier) {
+void writeData(Data data, FILE* pFichier) {
     fprintf_s(pFichier, "%d,%d,%d", data.movement, data.gender, data.index);
 
     for (int iVAcc = 0; data.vAcc[iVAcc] != '\0' && iVAcc < NB_VACC; iVAcc++) {
@@ -162,4 +166,3 @@ void writeData(Data data, FILE *pFichier) {
     }
     fprintf_s(pFichier, "\n");
 }
-

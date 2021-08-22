@@ -15,29 +15,29 @@ struct data {
 
 int creationOfDataSet(void);
 
-void creationOfHeader(FILE *pFi);
+void creationOfHeader(FILE* pFi);
 
 Data extractData(char path_name[], int iFile, int index);
 
-void writeData(Data data, FILE *pFichier);
+void writeData(Data data, FILE* pFichier);
 
 int getMovement(char path[ACCESS_PATH_LENGTH]);
 
-Data getGender(FILE *pFiDataSubjectsInfos, Data data, int iUser);
+Data getGender(FILE* pFiDataSubjectsInfos, Data data, int iUser);
 
-Data getVAcc(FILE *pFile, Data data);
+Data getVAcc(FILE* pFile, Data data);
 
 int creationOfModels(void);
 
-void createHeader(FILE *pFi);
+void createHeader(FILE* pFi);
 
-void lineProcessing(FILE *pFi, double sumAverages[NB_VACC]);
+void lineProcessing(FILE* pFi, double sumAverages[NB_VACC]);
 
 void
-writeModel(FILE *pFiModel, int movement, double sumAveragesMen[NB_VACC], double sumAveragesWomen[NB_VACC], int nbWomen,
-           int nbMen);
+writeModel(FILE* pFiModel, int movement, double sumAveragesMen[NB_VACC], double sumAveragesWomen[NB_VACC], int nbWomen,
+    int nbMen);
 
-void writeGender(FILE *pFi, int movement, double sumAveragesGender[NB_VACC], int nbGender);
+void writeGender(FILE* pFi, int movement, double sumAveragesGender[NB_VACC], int nbGender);
 
 
 #endif
